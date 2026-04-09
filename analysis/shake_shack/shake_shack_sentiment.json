@@ -1,0 +1,1743 @@
+{
+  "report": {
+    "title": "Shake Shack — Reviews, Metrics & Sentiment Report",
+    "compiled_date": "2026-04-09",
+    "sources": ["Trustpilot (all 191 reviews, pages 1-10)", "Wikipedia", "CNBC", "Seattle Times", "CBC News", "Forbes", "shakeshack.com/locations", "shakeshack.co.uk/locations"]
+  },
+  "overview": {
+    "category": "Fast Casual (QSR)",
+    "founded": "July 2004",
+    "founded_location": "Madison Square Park, NYC",
+    "founder": "Danny Meyer (Union Square Hospitality Group)",
+    "ticker": "NYSE: SHAK",
+    "total_locations": "400+ globally",
+    "locations_us": 262,
+    "locations_international": 142,
+    "avg_store_revenue_usd": 4000000,
+    "revenue_2018_usd": 459310000,
+    "employees_2018": 6101,
+    "employees_per_location": 45
+  },
+  "ratings": {
+    "trustpilot": {
+      "score": 2.2,
+      "max_score": 5,
+      "total_reviews": 191,
+      "rating_label": "Poor",
+      "breakdown": {
+        "5_star_pct": 22,
+        "4_star_pct": 5,
+        "3_star_pct": 6,
+        "2_star_pct": 12,
+        "1_star_pct": 55
+      },
+      "top_mention_categories": [
+        "Location",
+        "Order",
+        "Price",
+        "Staff",
+        "Value for Money",
+        "Quality",
+        "Response Time",
+        "Service",
+        "Checkout",
+        "Complaint"
+      ]
+    },
+    "trustpilot_peer_comparison": {
+      "shake_shack": 2.2,
+      "five_guys": 2.0,
+      "whataburger": 2.5,
+      "panera": 1.9,
+      "taco_bell": 2.3,
+      "wendys": 2.7,
+      "mcdonalds": 1.6
+    }
+  },
+  "reviews": {
+    "positive": [
+      {
+        "reviewer": "Lynn",
+        "country": "GB",
+        "rating": 4,
+        "date": "2026-04-05",
+        "location_mentioned": "Kings Cross Station",
+        "store_location": "King's Cross Station, London, UK",
+        "store_address": "Units 2/3 Mezzanine Level, Kings Cross Railway Station, London N1C 9AL",
+        "text": "Really nice burgers, fries and the juices are huge and delicious. Only thing is they're a bit on the pricey side and you need to remember to grab napkins because they don't put any on your tray and you'll end up needing them when eating a messy burger!! Love the ordering system, it cuts a lot of time and you can sit and wait and keep an eye on the screen to see when it's nearly ready."
+      },
+      {
+        "reviewer": "Lyndon Newins",
+        "country": "GB",
+        "rating": 5,
+        "date": "2026-03-25",
+        "location_mentioned": "Gatwick",
+        "store_location": "Gatwick Airport, UK",
+        "store_address": "North Terminal Airside, Gatwick Airport, West Sussex, RH6 0JP",
+        "text": "Shake Shack Gatwick was superb. Sadaf was happy and very helpful. Great service and food."
+      },
+      {
+        "reviewer": "Thomas Meehan",
+        "country": "US",
+        "rating": 5,
+        "date": "2026-03-11",
+        "location_mentioned": "Burlington, MA",
+        "store_location": "Burlington Mall, MA, US",
+        "store_address": "75 Middlesex Turnpike, Burlington, MA",
+        "text": "Fantastic. Shake Shack in Burlington, MA, Nat is the best! Gluten-Free is great!"
+      },
+      {
+        "reviewer": "S J B",
+        "country": "GB",
+        "rating": 5,
+        "date": "2025-09-03",
+        "location_mentioned": "London Victoria",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Had my first Shake Shack at London Victoria yesterday and it was delicious! If you're going to treat yourself to a burger spend a couple of extra pounds for a great burger rather than one that just fills a gap. Restaurant was really clean and tidy too, would highly recommend."
+      },
+      {
+        "reviewer": "Diana",
+        "country": "BR",
+        "rating": 5,
+        "date": "2025-01",
+        "location_mentioned": "Singapore",
+        "store_location": "Singapore (multiple locations)",
+        "store_address": null,
+        "text": "The best hamburger in Singapore!! I'll definitely come back!!"
+      },
+      {
+        "reviewer": "BookedJ",
+        "country": "GB",
+        "rating": 5,
+        "date": "2024-07",
+        "location_mentioned": "Stratford Westfield, London",
+        "store_location": "Westfield Stratford City, London, UK",
+        "store_address": "124-125 The Street, Westfield Stratford City, London, E20 1EN",
+        "text": "Shakeshack Stratford Westfield branch in London — great food and atmosphere."
+      },
+      {
+        "reviewer": "Chinasa Uyanna",
+        "country": "GB",
+        "rating": 5,
+        "date": "2024-08",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Made to feel very welcomed at Shake Shack, Canary Wharf by Zuber. Outstanding hospitality and great food."
+      },
+      {
+        "reviewer": "the cat Felix",
+        "country": "TW",
+        "rating": 5,
+        "date": "2024-08",
+        "location_mentioned": "EmSphere Mall, Bangkok",
+        "store_location": "The Emsphere, Bangkok, Thailand",
+        "store_address": "Shop Unit GL01/GM 10, 622 Sukhumvit Road, Klong Ton, Klong Toey, Bangkok",
+        "text": "Discovered them on a trip to Bangkok inside the new mall called 'EmSphere'. Really enjoyed the burgers and atmosphere."
+      },
+      {
+        "reviewer": "Aisulu Yelgeldy",
+        "country": "KZ",
+        "rating": 5,
+        "date": "2024-10",
+        "location_mentioned": "Mercato and City Centre Deira, Dubai",
+        "store_location": "Mercato Mall / Deira City Centre, Dubai, UAE",
+        "store_address": "Mercato Shopping Mall, Shops 4 & 5, Jumeirah Beach Road, Dubai / Deira City Centre, Level 1, 8th St, Port Saeed, Dubai",
+        "text": "Great burgers at both the Mercato and City Centre Deira locations in Dubai."
+      },
+      {
+        "reviewer": "Sylvie",
+        "country": "GB",
+        "rating": 4,
+        "date": "2025-06",
+        "location_mentioned": "Airport location (screens for flight updates)",
+        "store_location": "Airport location (likely Gatwick or similar)",
+        "store_address": null,
+        "text": "Good burgers, very friendly service, nice table area with screens for flight updates."
+      },
+      {
+        "reviewer": "Jon",
+        "country": "US",
+        "rating": 4,
+        "date": "2025-04",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Shake Shack seems to be improving based on my most recent experience."
+      },
+      {
+        "reviewer": "Tracy",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "FAVORITE BURGER HANDS DOWN."
+      },
+      {
+        "reviewer": "Victor Ens",
+        "country": "DE",
+        "rating": 4,
+        "date": "2024-10",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Best Burger and Fries! Bring Shake Shack to EU!!"
+      },
+      {
+        "reviewer": "Reuben Ashun",
+        "country": "GB",
+        "rating": 5,
+        "date": "2024-03-24",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Food came relatively fast. As soon as I took my first bite of the burger my body was already halfway in heaven. The best food I've ever eaten. Bless whoever made that gracious food. I'll be back next week."
+      },
+      {
+        "reviewer": "Lakeisha Tillman",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-03-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I LIKE TEAM MEMBER YASHICA THANK YOU SO MUCH!"
+      },
+      {
+        "reviewer": "Aya Shobaki",
+        "country": "JO",
+        "rating": 5,
+        "date": "2024-01-23",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Everything is perfect and delicious."
+      },
+      {
+        "reviewer": "Armtis Zarkharidi",
+        "country": "IR",
+        "rating": 5,
+        "date": "2024-01-23",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Size is little but food was great."
+      },
+      {
+        "reviewer": "customer",
+        "country": "GB",
+        "rating": 5,
+        "date": "2024-01-16",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Our party of 10 visited the Shake Shack in Canary Wharf. We were looked after by a gentleman called Zuber who was excellent. Our food arrived promptly and all the different burgers and drinks were sorted in their respective categories by Zuber which made it very easy to distribute. Altogether an excellent experience and we will return."
+      },
+      {
+        "reviewer": "Enrique",
+        "country": "GB",
+        "rating": 5,
+        "date": "2024-01-05",
+        "location_mentioned": "Gatwick Airport",
+        "store_location": "Gatwick Airport, UK",
+        "store_address": "North Terminal Airside, Gatwick Airport, West Sussex, RH6 0JP",
+        "text": "I ordered a vegetarian burger in Gatwick airport and a lemonade and both were excellent. And the staff were very kind and helpful. The area was clean and a very kind staff came to clean my table. Great experience thank you."
+      },
+      {
+        "reviewer": "Ubaldo De Rosa",
+        "country": "IT",
+        "rating": 5,
+        "date": "2023-12-27",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "It's actually a pretty great burger joint that I discovered for myself fairly recently. I'd even say that among the burgers I have tried, Shake Shack is up there at the top. It can certainly compete with the gourmet burger places."
+      },
+      {
+        "reviewer": "Eugene",
+        "country": "DE",
+        "rating": 5,
+        "date": "2023-09-17",
+        "location_mentioned": "Dubai",
+        "store_location": "Dubai, UAE",
+        "store_address": null,
+        "text": "Best fast food joint in Dubai!"
+      },
+      {
+        "reviewer": "重羽",
+        "country": "GB",
+        "rating": 5,
+        "date": "2023-09-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Good fried chicken and friendly staff. Finlaye was really nice."
+      },
+      {
+        "reviewer": "Nan Wang",
+        "country": "GB",
+        "rating": 5,
+        "date": "2023-09-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Sandwich was really good."
+      },
+      {
+        "reviewer": "Andrew",
+        "country": "US",
+        "rating": 5,
+        "date": "2023-07-16",
+        "location_mentioned": "Charlotte NC airport",
+        "store_location": "Charlotte Douglas Airport, NC, US",
+        "store_address": null,
+        "text": "Shake Shack in the Charlotte NC airport is excellent! Especially want to note the exceptional customer service from Assian and Toni. They went above and beyond and infused my extremely challenging trip with hope and humanity. Thank you, Bravo!"
+      },
+      {
+        "reviewer": "Eldin",
+        "country": "FR",
+        "rating": 5,
+        "date": "2023-06-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "How can we live in a world where the masterpiece of fast-food doesn't have 5 star. They just made the best burger, the best fries and milkshake. Honestly."
+      },
+      {
+        "reviewer": "ALIREZA MOSPASAVI",
+        "country": "GB",
+        "rating": 5,
+        "date": "2023-04-16",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "It was my first experience at shack I really loved it staff so friendly they have welcomed me. Talked me through their menu and recommendation great call I will definitely come back, food also was mouth watering."
+      },
+      {
+        "reviewer": "Marcy Benosa",
+        "country": "PH",
+        "rating": 4,
+        "date": "2023-04-07",
+        "location_mentioned": "Macau",
+        "store_location": "Macau",
+        "store_address": null,
+        "text": "Taste is great, I just hoped there was more choices in their menu. I love their milkshake and it was a perfect snack for a humid day during my vacation in Macau. I even bought some souvenirs from their shop."
+      },
+      {
+        "reviewer": "Mr F. Eftekhari",
+        "country": "GB",
+        "rating": 5,
+        "date": "2022-10-08",
+        "location_mentioned": "Brent Cross, London",
+        "store_location": "Brent Cross, London, UK",
+        "store_address": "Unit S04, Brent Cross Shopping Centre, London, NW4 3FP",
+        "text": "We have been going to shake shack Brent Cross for over a year and always been happy. Very nice staff and open space. Manager is always available and helpful. Last night we were given two vouchers to have free burgers next time just to be a loyal customer. Nice gesture."
+      },
+      {
+        "reviewer": "Jason Bedford",
+        "country": "GB",
+        "rating": 5,
+        "date": "2022-09-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Had a great meal with my daughters, this was our first time having Shake Shack and we were not disappointed. I hope to see more restaurants opening across the UK!"
+      },
+      {
+        "reviewer": "Ron P",
+        "country": "US",
+        "rating": 4,
+        "date": "2022-08-07",
+        "location_mentioned": "Cross County, Yonkers, NY",
+        "store_location": "Cross County, Yonkers, NY, US",
+        "store_address": null,
+        "text": "I was not satisfied when I noticed that my chicken sandwich had a reduced portion of chicken. I purchase from cross county shake shack in Yonkers NY."
+      },
+      {
+        "reviewer": "Andrea Skinner",
+        "country": "GB",
+        "rating": 5,
+        "date": "2022-06-08",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Great food served at the London Victoria restaurant. We were looked after by the lovely Israt. She really took care of us. I was with my elderly parents and my two young children and she went the extra mile and brought our food and drinks to our table. She was working really hard the whole time we were there. Thank you Israt."
+      },
+      {
+        "reviewer": "Hilary McGowan",
+        "country": "GB",
+        "rating": 5,
+        "date": "2022-04-23",
+        "location_mentioned": "Gatwick Airport",
+        "store_location": "Gatwick Airport, UK",
+        "store_address": "North Terminal Airside, Gatwick Airport, West Sussex, RH6 0JP",
+        "text": "We've just had a good breakfast at Shake Shack in Gatwick Airport North Terminal. We were served by lovely Thiago who deserves a pay rise, he's so good at his job and pleasant."
+      },
+      {
+        "reviewer": "John Lowe",
+        "country": "IE",
+        "rating": 5,
+        "date": "2022-04-17",
+        "location_mentioned": "Central London (Uber Eats delivery)",
+        "store_location": "Central London, UK",
+        "store_address": null,
+        "text": "Okay it's a take away but after long days site seeing used Uber eats to get this delivered to the hotel extremely tasty burgers has to be said."
+      },
+      {
+        "reviewer": "Michael Lewis",
+        "country": "GB",
+        "rating": 5,
+        "date": "2021-12-14",
+        "location_mentioned": "London",
+        "store_location": "London, UK",
+        "store_address": null,
+        "text": "Best burgers in London in my humble opinion."
+      },
+      {
+        "reviewer": "Nicola Remond",
+        "country": "GB",
+        "rating": 5,
+        "date": "2021-09-19",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Fantastic food and service from Zuber in Shake shack Canary Wharf."
+      },
+      {
+        "reviewer": "Music Master",
+        "country": "PK",
+        "rating": 4,
+        "date": "2021-09-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Very Unique Burgers but expensive!"
+      },
+      {
+        "reviewer": "thuy nguyen",
+        "country": "GB",
+        "rating": 5,
+        "date": "2021-04-29",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "We had a waiter called Zuber from Canary Wharf and he was amazing!!!!"
+      },
+      {
+        "reviewer": "Bethany-Rose Yates",
+        "country": "GB",
+        "rating": 5,
+        "date": "2021-04-29",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Zubea was an excellent waiter! Was very polite and catered to our needs. Food was absolutely Devine couldn't recommend enough."
+      },
+      {
+        "reviewer": "Nick",
+        "country": "GB",
+        "rating": 5,
+        "date": "2021-03-20",
+        "location_mentioned": "Central London",
+        "store_location": "Central London, UK",
+        "store_address": null,
+        "text": "I have only ever ordered delivery in central London but the quality has always been excellent and good value for what you get. If you want cheap, quick and nasty, use MacDonald's or Burger King instead."
+      },
+      {
+        "reviewer": "Rick Sparks",
+        "country": "GB",
+        "rating": 5,
+        "date": "2020-12-25",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Best burgers ever!"
+      },
+      {
+        "reviewer": "Malik",
+        "country": "US",
+        "rating": 5,
+        "date": "2020-03-22",
+        "location_mentioned": "Rice Village, Houston",
+        "store_location": "Rice Village, Houston, TX, US",
+        "store_address": null,
+        "text": "Got to-go during COVID @ Rice Village. Everyone super friendly and clean. Burger was great! Shake was good as always. Great burger spot."
+      },
+      {
+        "reviewer": "Mark Berg",
+        "country": "GB",
+        "rating": 4,
+        "date": "2019-09-18",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Great burgers, a little pricey, but portions just enough for a meal. Would be great if you did packaged meals."
+      }
+    ],
+    "negative": [
+      {
+        "reviewer": "Mustafa Serhat",
+        "country": "GB",
+        "rating": 1,
+        "date": "2026-03-07",
+        "location_mentioned": "Camden",
+        "store_location": "Camden, London, UK",
+        "store_address": "287 Camden High St, London, NW1 7BX",
+        "text": "The worst burger, I have ever eaten. A greasy, soggy burger made from the cheapest mince, full of gristle, with no flavour or character whatsoever. The staff are very slow and the place is filthy. They look glum. I couldn't eat it and left it. Don't go Camden branch."
+      },
+      {
+        "reviewer": "Joe Hennessy",
+        "country": "US",
+        "rating": 1,
+        "date": "2026-03-05",
+        "location_mentioned": "Massachusetts (unspecified)",
+        "store_location": null,
+        "store_address": null,
+        "text": "Order delivery. Used grub hub which really sucks. Shack Shack order bag wide open. Whole order compromised. They don't seal the bag. If I didn't want a shake would never ORDER from them. Food old and cold. This place is extremely poor on quality and sanitation. I AM NOTIFYING DEPT OF HEALTH FOR MASSACHUSETTS. AFTER 30 YEARS IN HEALTHCARE THIS IS A CHAIN RESTAURANT THAT SHOULD BE SHUT DOWN. ESPECIALLY THIS LOCATION. STAY AWAY FROM THIS CHAIN."
+      },
+      {
+        "reviewer": "Jacky L",
+        "country": "US",
+        "rating": 1,
+        "date": "2026-02-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Getting worse and worse. This time was the last…"
+      },
+      {
+        "reviewer": "Sam B",
+        "country": "AU",
+        "rating": 1,
+        "date": "2026-01-28",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Overpriced. Undersized. Sub par taste."
+      },
+      {
+        "reviewer": "Jim Jam",
+        "country": "GB",
+        "rating": 1,
+        "date": "2026-01-17",
+        "location_mentioned": "King's Cross",
+        "store_location": "King's Cross, London, UK",
+        "store_address": "Units 2/3 Mezzanine Level, Kings Cross Railway Station, London N1C 9AL",
+        "text": "We ate at the King's Cross branch... Nice customer service and shake were about the only good things. Nearly £40 for two burgers, one fries and one milkshake as we shared them to keep cost down. The fries were luke warm and very cardboard like. My veggie burger was hot but really not great at all. My mate had a cheese burger, he didn't enjoy it either. Took ages to come and there was rubbish piled up by the bins. Defo don't recommend and won't ever be coming back."
+      },
+      {
+        "reviewer": "Snake Pliskin",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-12-18",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The chopmeat used in their burgers seems to be ground only 1 time resulting in pieces unable to chew. I know this because I was a butcher for 47 years and made at least 200 lbs of chopmeat every morning ground 3 times. 3rd time it went into package. Also over 6 bucks for fries! Shakes good but over priced. Verdict, they suck!"
+      },
+      {
+        "reviewer": "Peter L",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-11-24",
+        "location_mentioned": "Kings Cross",
+        "store_location": "King's Cross, London, UK",
+        "store_address": "Units 2/3 Mezzanine Level, Kings Cross Railway Station, London N1C 9AL",
+        "text": "This was without doubt the worst burger I have ever eaten. £35 for two burgers, a portion of chips and a coke (shared!). The burger bun was so grease filled it was like a fat laden pancake surrounding two very greasy patties. I know it was Kings Cross, but ridiculous price for disgusting food."
+      },
+      {
+        "reviewer": "Philip Eagle",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-11-02",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Walked in to Shake Shack in Victoria in London. Pictures looked amazing of the food...they look nothing like the pictures!! Overall the food was shocking. Two burgers and chips with a shake and a floater.. forty three quid. The burgers were tiny. Would definitely never go back."
+      },
+      {
+        "reviewer": "Rawan Ismail",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-11-04",
+        "location_mentioned": "Camden Town",
+        "store_location": "Camden, London, UK",
+        "store_address": "287 Camden High St, London, NW1 7BX",
+        "text": "I had a very upsetting experience at Shake Shack Camden Town on Sunday, 26 October at around 3:20 PM. While helping my 5-year-old son in the accessible toilet (with permission, as my elderly mother cannot use stairs), a male employee entered without knocking, shouted at us, and told us to leave, even though my son was undressed and extremely frightened. I was truly shocked that this could happen in London, and in a well-known family restaurant like Shake Shack. The manager apologized but refused to provide the employee's name, which made it impossible to report the incident properly. I later sent a formal complaint to Shake Shack UK's customer feedback email but received no reply or acknowledgment at all, which was deeply disappointing."
+      },
+      {
+        "reviewer": "Ana S",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-10-12",
+        "location_mentioned": "2100 SE 164th Ave, Vancouver, WA",
+        "store_location": "Fishers Landing, Vancouver, WA, US",
+        "store_address": "2100 SE 164th Ave, Vancouver, WA",
+        "text": "It wasn't worth waiting almost 30 minutes for one French fries and one hot dog. In the address 2100 SE 164th Ave Vancouver, WA."
+      },
+      {
+        "reviewer": "Kareem Yakub",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-09-15",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "If Shake Shack wants their share price to go higher then they better start to figure out how their restaurants have become examples of terrible customer service. They're losing people due to their inability to deliver quality food and good service."
+      },
+      {
+        "reviewer": "Brillo",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-09-11",
+        "location_mentioned": "Cape Cod, MA",
+        "store_location": "Hyannis, MA, US",
+        "store_address": "790 Iyannough Rd, Barnstable, MA",
+        "text": "First time visit....Fool me once shame on you...Fool me twice shame on ME. Nice greeting. SS can't add mayo to a burger....Huh What? Fries luke warm. Not crispy. Regular size meat, small bun. Way over cooked. NO napkins in takeout bag...Huh What? Very little flavor for burger, No juice. Sounds like a 'corporate' problem, not the local store. Have the CEO's spouse go to a location, and write a review. This a true attestation without any prejudice. SCP Cape Cod, MA."
+      },
+      {
+        "reviewer": "Byron Shelley",
+        "country": "US",
+        "rating": 2,
+        "date": "2026-04-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Overpriced snacks but foods are edible and above average."
+      },
+      {
+        "reviewer": "Scottie",
+        "country": null,
+        "rating": 1,
+        "date": "2024-04-18",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Slow staff, dirty kitchen area and poorly made and small portion burgers for high prices. McDonald's is 100% better and much cheaper. Won't be visiting Shake Shack ever again or recommend to anyone."
+      },
+      {
+        "reviewer": "Rashmi Rungta",
+        "country": null,
+        "rating": 1,
+        "date": "2021-12-11",
+        "location_mentioned": "Covent Garden",
+        "store_location": "Covent Garden, London, UK",
+        "store_address": "24 Market Building, The Piazza, London, WC2E 8RD",
+        "text": "Not surprised to see the high amount of bad reviews here. I had one myself recently — please avoid the Covent Garden branch. The vegan patty is plant based and they do not mention it anywhere."
+      },
+      {
+        "reviewer": "A customer",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-08",
+        "location_mentioned": "Antalya, Turkey",
+        "store_location": "Antalya Airport Terminal 2, Turkey",
+        "store_address": "Antalya Havaalani Dis Hatlar Terminali 2, 07230 Muratpasa/Antalya, Turkey",
+        "text": "Food was ridiculously overpriced paid 2770 Turkish lyra for 2 burgers."
+      },
+      {
+        "reviewer": "Dina Malloupa Paraskeva",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Very pricey £85 for 3 burgers, 3 fries and 4 shakes!"
+      },
+      {
+        "reviewer": "Chris",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-07",
+        "location_mentioned": "London, UK (vs New York)",
+        "store_location": "London, UK (unspecified branch)",
+        "store_address": null,
+        "text": "Vegetarian burger good in New York, poor in London. Inconsistent quality between US and UK locations."
+      },
+      {
+        "reviewer": "Ashleigh",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Cold food and a long wait. Drove 1.5 hours and spent £57. Very disappointing."
+      },
+      {
+        "reviewer": "Marilyn Miller",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-06",
+        "location_mentioned": "Westfield, Stratford",
+        "store_location": "Westfield Stratford City, London, UK",
+        "store_address": "124-125 The Street, Westfield Stratford City, London, E20 1EN",
+        "text": "Worst Restaurant in Westfield, Stratford. Visited 27/06/2025 ~7pm. Burgers ~£10 each, fries £5. Quality terrible for the price."
+      },
+      {
+        "reviewer": "AP Skinner",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06",
+        "location_mentioned": "Surprise, AZ",
+        "store_location": "Surprise, AZ, US",
+        "store_address": "16470 W Waddell Rd, Surprise, AZ",
+        "text": "Missing items, melted shakes, $60 for a family of 3. Terrible experience."
+      },
+      {
+        "reviewer": "Candi Cazau",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "7 nuggets for $8.66, total rip off."
+      },
+      {
+        "reviewer": "Drew Richards",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-02",
+        "location_mentioned": "Cardiff, Wales",
+        "store_location": "Cardiff, Wales, UK",
+        "store_address": "Unit 86-88, St. David's Dewi Sant, Upper Grand Arcade, Cardiff, CF10 2EL",
+        "text": "Got food poisoning from the Cardiff branch."
+      },
+      {
+        "reviewer": "Scott Pearson",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-01",
+        "location_mentioned": "Lakeside (Essex, UK)",
+        "store_location": "Lakeside, Essex, UK",
+        "store_address": null,
+        "text": "£47 for 2 burgers, chips and milkshakes at Lakeside. Previously good in New York but UK quality terrible."
+      },
+      {
+        "reviewer": "Simon Ball",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Horrid food. Burger not tasty and bacon acrid and burnt. £16.95 for chicken bites."
+      },
+      {
+        "reviewer": "Justin Bruno",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Food was cold, truffle fries had no sauce. $40 for 2 burgers, 2 shakes, 1 fry."
+      },
+      {
+        "reviewer": "Jean Duckworth-Lloyd",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-11",
+        "location_mentioned": "Leicester Square, London",
+        "store_location": "Leicester Square, London, UK",
+        "store_address": "1-2 Coventry Street, London, W1D 6BH",
+        "text": "Detailed negative review of cheese fries at Leicester Square. Very disappointed with quality."
+      },
+      {
+        "reviewer": "Mystery Shopper",
+        "country": "HK",
+        "rating": 1,
+        "date": "2024-07",
+        "location_mentioned": "IFC, Hong Kong",
+        "store_location": "IFC Mall, Hong Kong",
+        "store_address": "Shop 4018, Podium Level 4, IFC Mall, 8 Finance Street, Central, Hong Kong",
+        "text": "Wrong order, can't reach by phone. Very poor experience at the IFC location."
+      },
+      {
+        "reviewer": "Elizabeth",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Extremely detailed negative review — burnt burgers, rude staff. Never returning."
+      },
+      {
+        "reviewer": "Marian Lewis",
+        "country": "GB",
+        "rating": 3,
+        "date": "2024-07",
+        "location_mentioned": "London, UK (vs US locations)",
+        "store_location": "London, UK (unspecified branch)",
+        "store_address": null,
+        "text": "US locations consistently good but London was poor. Inconsistent quality across markets."
+      },
+      {
+        "reviewer": "Mazey-Jessica Twi",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-05",
+        "location_mentioned": "Oxford, UK",
+        "store_location": "Oxford, UK",
+        "store_address": "33-34 Cornmarket St, Oxford, OX1 3EZ",
+        "text": "Went to the Oxford Shop. Very poor quality for the price."
+      },
+      {
+        "reviewer": "Fi French",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-04",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Went to the Victoria Shake Shack in London. £35 for chicken burger + cheeseburger + 2 fries + coke. Not worth it."
+      },
+      {
+        "reviewer": "Jenna Halverson",
+        "country": "US",
+        "rating": 3,
+        "date": "2024-04",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "$17 for 1 avocado bacon burger and 1 chocolate shake. Taste was great but can't look past the price."
+      },
+      {
+        "reviewer": "James",
+        "country": "GB",
+        "rating": 2,
+        "date": "2025-04",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "All deep fried trans fat, salty, sugary American tasting food. Ketchup exploded on jacket."
+      },
+      {
+        "reviewer": "Gloria",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-03",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Revolting. Stone cold, absolutely nothing like the photographs."
+      },
+      {
+        "reviewer": "Anne Marie",
+        "country": "CA",
+        "rating": 1,
+        "date": "2024-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Long line up outside... burger was underwhelming. Small. Waste of $35."
+      },
+      {
+        "reviewer": "Winifred Mitchell",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "This was Wendy's but 10x more expensive. $28 for 2 single burgers, 1 fry and 1 juice drink."
+      },
+      {
+        "reviewer": "Benjie",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Chicken burger/bites tasted burnt, cheese sauce gritty. Waited 20+ min."
+      },
+      {
+        "reviewer": "Dan",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Overpriced and disgusting... burger was greasy and small for the price."
+      },
+      {
+        "reviewer": "Dan Brooks",
+        "country": "US",
+        "rating": 2,
+        "date": "2024-10",
+        "location_mentioned": "Located right next to McDonalds",
+        "store_location": null,
+        "store_address": null,
+        "text": "Located right next to McDonalds... Two burgers smaller than McD and two shakes from a mix for $40."
+      },
+      {
+        "reviewer": "James",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-03-17",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "£21 for a tasteless chicken burger and fries. What a joke. Staff walk around constantly bothering you to write reviews, well here it is: terrible food, not left in peace to eat it, an absolute rip off, avoid!"
+      },
+      {
+        "reviewer": "Customer sonia",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-03-14",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Total rip off!! Went to see a show in London afterwards my daughter wanted to go to shake shack in Victoria for a burger well what can I say over hyped and over priced I had 6 chicken nuggets which were tepid and tasteless. Some chipotle crinkle cut chips which were awful. Cost £32 which I could have had a better meal at Mac Donald's. Don't waste your money will definitely not go to a shake shake ever again!! Also there toilets should come with government health warning."
+      },
+      {
+        "reviewer": "Giuseppe",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-03-01",
+        "location_mentioned": "Argyll Street, London",
+        "store_location": "Argyll Street, London, UK",
+        "store_address": "10 Argyll St, London, W1F 7TQ",
+        "text": "I went to Shake Shack on Argyll Street. Never again!! When ordering on a touch screen they wanted address, phone, number email!! I only wanted a cheeseburger. A cheeseburger the size of McDonalds, just 7x more expensive £8.95 for a patty, cheese and bun...no sauce, nothing!! Overall, 10 minutes to get a cheeseburger the size & quality of McDonalds just 6x more expensive."
+      },
+      {
+        "reviewer": "SMc",
+        "country": "GB",
+        "rating": 1,
+        "date": "2024-02-03",
+        "location_mentioned": "Oxford, UK",
+        "store_location": "Oxford, UK",
+        "store_address": "33-34 Cornmarket St, Oxford, OX1 3EZ",
+        "text": "I don't write reviews. This was hands down the worst food and fast food both my friend and I have ever had. Burgers, fries, ordering, delivery everything was vile. Shake shack Oxford."
+      },
+      {
+        "reviewer": "Joe Pieper",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-01-28",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Stay away. Food overpriced. Taste underwhelming. Just not worth the hype. Party of 8 agreed. Ordering experience even worse."
+      },
+      {
+        "reviewer": "Nilofer Husnoo",
+        "country": "GB",
+        "rating": 3,
+        "date": "2024-01-19",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The chicken shack was satisfactory. The fresh lemonade was good but stop cheating by filling the cup with 60% of ice cubes then the rest the juice. This should be called food dishonesty!"
+      },
+      {
+        "reviewer": "Richard Chau",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-01-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Please don't waste your time and money on their burgers. Beef patties were dryer than Trill Burgers, and they didn't even toast their buns. On top of coming short of mediocre, they give you crinkle fries. So disappointed."
+      },
+      {
+        "reviewer": "RG SOSA",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-01-01",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Ordered 2 cheese Hamburgers, one single, one double, plus drink and fries. Both burgers were flat and burned. Very disappointed for quality. For the 28 dollars I paid for burned paper thin burgers. I wasted my money. I will never come here again!"
+      },
+      {
+        "reviewer": "Matt",
+        "country": "GB",
+        "rating": 2,
+        "date": "2023-12-10",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "London Victoria branch, very average food, VERY overpriced, very moody staff, and they refuse to take real money. I will never eat at one of these places again."
+      },
+      {
+        "reviewer": "Rhonda Rivera",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-11-22",
+        "location_mentioned": "Grand Prairie, TX",
+        "store_location": "Grand Prairie, TX, US",
+        "store_address": null,
+        "text": "Went to the new one in Grand Prairie TX and it was awful. The burgers were tiny the lettuce and everything was half off the burger and it was not even warm and the fries were almost cold. The shakes were like milk and just didn't taste right. Also it was very expensive for a fast food place. Will not go back!!!! Ever!!!!"
+      },
+      {
+        "reviewer": "celeste hayward",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-11-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Absolutely awful - no other words. Expensive rip off prices for probably the worst breakfast bun I've ever had the mispleasure of eating. And the latte wasn't much better."
+      },
+      {
+        "reviewer": "Alizeya Soto-Cruz",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-10-23",
+        "location_mentioned": "New Baltimore I-87 Milepost 127",
+        "store_location": "New Baltimore, NY (I-87 rest stop), US",
+        "store_address": null,
+        "text": "My girlfriend and I stopped by the New Baltimore I-87 - Milepost 127 NB/SB. She was hungry so she got in line and the dude screams at her saying we're closed and practically embarrassed her. Then she runs back in to go pee as he was taking 2 other peoples orders. Like why would you lie."
+      },
+      {
+        "reviewer": "Kaveh Kad",
+        "country": "GB",
+        "rating": 2,
+        "date": "2023-09-30",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Very expensive for such small burger. Fries are so ordinary. Patty is tiny. Nothing special about this place. I'd rather go to FIVE GUYS. I'd pay £8 inc fries. Not more."
+      },
+      {
+        "reviewer": "susan Miles",
+        "country": "US",
+        "rating": 2,
+        "date": "2023-09-16",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Ordered the veggie burger. It was so salty! Made me sick and couldn't eat more than a couple of bites. Will never order it again. However the non dairy shake and fries were really good."
+      },
+      {
+        "reviewer": "Nev",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-08-15",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Something was wrong with the food on Saturday. Came here with some girlfriends around 2:30 in the afternoon and the meat tasted foul it even smelt off the moment we picked up our trays. First time having shake shack in the UK and I think it will be my last."
+      },
+      {
+        "reviewer": "Janell Allen",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-08-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "This is a horrible place to eat or work at. They show favoritism and will lie on you to fire you. The managers play favoritism so bad. Half the orders are messed up and the burgers are pink even if you asked for well done. Door dash customers wait 2 hours to receive their food."
+      },
+      {
+        "reviewer": "Customer",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-07-13",
+        "location_mentioned": "Leicester Square, London",
+        "store_location": "Leicester Square, London, UK",
+        "store_address": "1-2 Coventry Street, London, W1D 6BH",
+        "text": "Leicester Sq branch. What an awful experience. Just very overpriced version of McDonald's and food was worse. Appalling tasteless milkshakes, way inferior to McD's. Everything was an add-on with the price going crazy. Nearly £6 for fries with an appalling plastic cheese topping. My daughter had one chip and threw the rest away. Dirty toilets. I had an upset stomach the day after. Rubbish and a rip off - AVOID!"
+      },
+      {
+        "reviewer": "Seivar Al-Firqa",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-06-13",
+        "location_mentioned": "Clapham Common, London",
+        "store_location": "Clapham, London, UK",
+        "store_address": "188 Clapham High St, London, SW4 7UG",
+        "text": "Shake Shack opened a new branch in Clapham Common. They posted flyers all across the high street offering a free meal. However they are refusing to honour the offer. Cheap stunt which backfired because I won't be going back there."
+      },
+      {
+        "reviewer": "Korean Imports",
+        "country": "US",
+        "rating": 3,
+        "date": "2023-06-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "As good as the hamburger is we were so taken back by the tip begging for orders to go. When we asked why the pinpad was asking for a tip on a to go order the young man told us they were not paid very well so they had to ask for tips. This is never accepted in our country."
+      },
+      {
+        "reviewer": "Rob",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-05-14",
+        "location_mentioned": "Stratford, London",
+        "store_location": "Westfield Stratford City, London, UK",
+        "store_address": "124-125 The Street, Westfield Stratford City, London, E20 1EN",
+        "text": "Overcooked burger - Dried Out. Too little sauce and topping. Looks nothing like the burger photos online! Stratford Branch."
+      },
+      {
+        "reviewer": "Lloyd",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-04-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I ordered a 'shroom BURGER and assumed it was a burger since SShack is a burger place. It was a deep fried mushroom 'burger'. Awful!! Won't be back!! Five Guys next time."
+      },
+      {
+        "reviewer": "Mrs Hill",
+        "country": "GB",
+        "rating": 2,
+        "date": "2023-04-06",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Not really very good. Expensive for a burger and fries. Crinkle cut fries are not the most healthy option. Homemade lemon drink was too sweet. McDonalds would have been better. Staff were friendly. Will not be returning."
+      },
+      {
+        "reviewer": "ian mcintosh",
+        "country": "GB",
+        "rating": 2,
+        "date": "2023-04-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The fries were nice but cold and stuck together in a lump due to being sat for ages. The burger was ok but also cold. The Diet Coke was in a tiny cup not much bigger than a can and cost £3.90. The whole thing cost nearly £20. I think McDonald's is a better value for money."
+      },
+      {
+        "reviewer": "Chel",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-04-01",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Got milkshakes with no straws, ordered 2 cans of coke and was given Pepsi. Driver didn't care and was very unhelpful! Won't ever order from here again."
+      },
+      {
+        "reviewer": "Eleni ANASTASAKI",
+        "country": "GB",
+        "rating": 1,
+        "date": "2023-03-31",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "We got sick - avoid churros milk shake. Food quality was so poor but worst of all is the churros milk shake - be careful all; everyone I know who tried it got sick and was vomiting incl. my young kids."
+      },
+      {
+        "reviewer": "Catherine Edgson",
+        "country": "GB",
+        "rating": 3,
+        "date": "2023-03-31",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Came on a busy Friday. Queue wasn't too bad but waited for about 15 minutes to collect the order. The shroom burger is very nice and good for a veggie option. The fries however were very dry and I couldn't finish them. They didn't have any vinegar."
+      },
+      {
+        "reviewer": "katherine welsh",
+        "country": "US",
+        "rating": 2,
+        "date": "2023-03-29",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Lots of issues with my order. Food was amazing and so was the shake, but poor communication and had the person picking up my order wait for a substantial amount of time."
+      },
+      {
+        "reviewer": "Margaret Marshall",
+        "country": "US",
+        "rating": 2,
+        "date": "2023-01-04",
+        "location_mentioned": "Boulder, Colorado",
+        "store_location": "Boulder, CO, US",
+        "store_address": null,
+        "text": "I went to Shake shack in Boulder Colorado and the burgers were so tiny almost a slider size and also dry... really disappointing! Won't go back! The employees were nice though!"
+      },
+      {
+        "reviewer": "Joe Odom",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-01-03",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Much too noisy. Food overpriced. Had a $4.00 hotdog and they didn't have any chilly to put on it. It was naked and the flimsy bun fell apart. Horrible place to eat."
+      },
+      {
+        "reviewer": "Alandra",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-12-12",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I would give zero stars if I could. First time and WILL NEVER GO BACK. The double stack was completely lifeless meaning absolutely no flavor but it was full of grease. Fries are those Oreida fries with no salt or nothing. I spent almost $20 to be completely disappointed. Someone said they were in comparison to 5 Guys and the lie detector says that's a lie."
+      },
+      {
+        "reviewer": "customer",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-11-21",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The name of the store is Shake Shack. You have a big sign in front of the entrance offering three different Holiday Shakes. We went in and was told you were not making Shakes that day. What?! No one available to take an order. Had to use the Kiosk. Shakes were not on the Menu. We turned around and left. You should just call it 'Shack.' I will never be back to any location."
+      },
+      {
+        "reviewer": "ldg",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-11-04",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Victoria London restaurant... stay well away. Incredibly poor value for money. Burgers were paper thin and VERY over priced. Never again."
+      },
+      {
+        "reviewer": "Mrs H",
+        "country": "GB",
+        "rating": 2,
+        "date": "2022-10-07",
+        "location_mentioned": "Brent Cross, London",
+        "store_location": "Brent Cross, London, UK",
+        "store_address": "Unit S04, Brent Cross Shopping Centre, London, NW4 3FP",
+        "text": "Brent Cross branch. Menu was difficult to understand. No children's options. Couldn't order 2 out of 3 desserts because there was no toffee. Chips were good but burger was tiny. Strawberry milkshake had no strawberry flavour and too creamy for my son. Really disappointed."
+      },
+      {
+        "reviewer": "rose dipietro",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-10-07",
+        "location_mentioned": "Richmond Ave, Staten Island, NY",
+        "store_location": "Staten Island, NY, US",
+        "store_address": null,
+        "text": "WENT TO SHAKE SHACK ON RICHMOND AVE STATEN ISLAND, NEW YORK. AS I WAS DECIDING TO ORDER the cashier said ANYTHING ELSE ANYTHING ELSE 5X WHILE I WAS LOOKING AT THE MENU. I SAID MISS UR RUSHING ME THERE IS NO CUSTOMERS BEHIND ME. I ONLY ORDERED ONE SHACK CHEESEBURGER AND COKE. She tells me sorry no change. I ATE MY CHEESE BURGER WITH NO FRIES AND NO SHAKE CAUSE I WAS BEING RUSHED."
+      },
+      {
+        "reviewer": "Gavin Baker",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-10-01",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Do not make an order. 2 times lost money. Shack said not their fault. Paid last week twice can't get money back again cos driver gone sick. I'm disabled can't get there. Last time ever. Staff not very helpful."
+      },
+      {
+        "reviewer": "Kim Moffitt",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-09-17",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Terrible, I tell him my order he reads it out loud and still gets my order wrong!! Wasted 9 dollars on the wrong burger. Wouldn't recommend."
+      },
+      {
+        "reviewer": "Fatou Fame",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-09-16",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "THEY DIDN'T PUT ENOUGH LETTUCE ON MY BURGER. THE BREAD HAD WAY TOO MUCH BUTTER IN IT, AND THEY GOT MY ORDER WRONG. THEIR STUFF MAKES ME FEEL SEA-SICK TOO!!!!"
+      },
+      {
+        "reviewer": "Clare Casey",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-08-28",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Within a few hours horrendous stomach cramps, vomiting and terrible diarrhoea. Feel so ill!! Avoid Canary Wharf one at least!!!"
+      },
+      {
+        "reviewer": "Elaine Hepple",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-07-30",
+        "location_mentioned": "Cannon Street, London",
+        "store_location": "Mansion House, London, UK",
+        "store_address": "45 Cannon Street, London, EC4M 9AL",
+        "text": "Unappealing food and very expensive - Paid £20 for a small burger, small hotdog and 2 cokes - really was not worth the money at all. In a yellow buttery bun and hotdog looked overcooked. Staff were not friendly either. Very Poor. I went to the one on Cannon Street and after my son had his hotdog had a bad stomach all day."
+      },
+      {
+        "reviewer": "Matthew Johnson",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-07-18",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Strongly advise not to bother. No order received, Deliveroo couldn't even get a response when they are open."
+      },
+      {
+        "reviewer": "Emma",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-07-14",
+        "location_mentioned": "Covent Garden, London",
+        "store_location": "Covent Garden, London, UK",
+        "store_address": "24 Market Building, The Piazza, London, WC2E 8RD",
+        "text": "Covent Garden deserves to be shut down for good or at least CHANGE THE GM!!!! The GM has a horrible attitude I waited for my food for nearly 30+ minutes and then they made a mistake on my order. There was a sweetheart on windows who helped - she honestly deserves a raise. She was so understanding and tried to reassure me. She is known as T so tops off to T from Covent Garden."
+      },
+      {
+        "reviewer": "Valerie Gibson",
+        "country": "US",
+        "rating": 2,
+        "date": "2022-05-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The burger was very thin and small. They make you think it's bigger by putting it on a small bun, but it was 3 bites and you're done. No taste at all. Not a value nor any quality for the money spent. It was my first and last time there."
+      },
+      {
+        "reviewer": "GT",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-04-30",
+        "location_mentioned": "Canary Wharf, London",
+        "store_location": "Canary Wharf, London, UK",
+        "store_address": "Park Pavilion, 40 Canada Square, London, E14 5FW",
+        "text": "Very light customer level, and been 20 minutes and counting for a lemonade and shake. People who ordered after have already been served. Stay away from the Canary Wharf location!"
+      },
+      {
+        "reviewer": "Lola Markevic",
+        "country": "GB",
+        "rating": 1,
+        "date": "2022-03-03",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Every single time I order delivery you people forget to put cheese for my cheese fries! How is it possible to forget every single time?!"
+      },
+      {
+        "reviewer": "Maurice",
+        "country": "US",
+        "rating": 2,
+        "date": "2022-02-11",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "It's about the burger buns. You are using cheap buns. Replace the buns with one that are bigger and more filling."
+      },
+      {
+        "reviewer": "marc weinberg",
+        "country": "US",
+        "rating": 1,
+        "date": "2021-12-09",
+        "location_mentioned": "Encino, CA",
+        "store_location": "Encino, CA, US",
+        "store_address": null,
+        "text": "Over priced, over seasoned with a soggy bun. Encino, CA."
+      },
+      {
+        "reviewer": "Ben",
+        "country": "CA",
+        "rating": 3,
+        "date": "2021-11-30",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The food is really good, but once you've had it there's no need to pay triple the cost of the competition just to stand in a long line. Maybe if they had more locations it wouldn't be such a novelty but I don't see them expanding in too many countries with their exorbitant prices."
+      },
+      {
+        "reviewer": "Richard Hadfield",
+        "country": "GB",
+        "rating": 3,
+        "date": "2021-11-12",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Victoria branch - poor service throughout and disorganised."
+      },
+      {
+        "reviewer": "Mo",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-11-09",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "TERRIBLE, RUDE, UNHYGIENIC STAFF. They took our order but ended up putting a different burger through and charging us more. The extremely rude supervisor then proceeded to poke and prod the burger with her finger. Those gloved fingers had touched the computer screens, possibly cash, who knows. The glass they gave us was filthy and had greasy finger prints all over it. Will not return."
+      },
+      {
+        "reviewer": "james goldie",
+        "country": "AE",
+        "rating": 2,
+        "date": "2021-10-25",
+        "location_mentioned": "Istanbul airport",
+        "store_location": "Istanbul Airport, Turkey",
+        "store_address": null,
+        "text": "Ordered a double burger fries and coke at the Istanbul airport branch and found a long black hair in my burger patty."
+      },
+      {
+        "reviewer": "Nick Taylor",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-09-25",
+        "location_mentioned": "Covent Garden, London",
+        "store_location": "Covent Garden, London, UK",
+        "store_address": "24 Market Building, The Piazza, London, WC2E 8RD",
+        "text": "Randomly change their closing time. Came to the Covent Garden branch and all the doors shut up at 10pm when they are meant to be open until 11pm. We tried to order during the day and there was an hour wait for food. Will avoid Covent Garden branch very rude staff and so very dirty."
+      },
+      {
+        "reviewer": "Chloe Wealleans",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-09-24",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Absolute joke orders tonight. I ordered a completely plain burger through Just Eat however it wasn't plain. I rang up and they said it was my fault. The staff have real attitude problems and I ordered a hot chocolate fudge cake that came frozen. Absolutely ridiculous."
+      },
+      {
+        "reviewer": "Ellie Monaghan",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-09-15",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Absolutely ridiculous. 9 pounds for the shittest burger. 3 pound fanta, size of a McDonald's happy meal cup (you can't even refill it) never coming here again. My friends paid 5 pounds for nuggets (they are so small) tiny tiny tiny. Fuming. Worst place ever."
+      },
+      {
+        "reviewer": "Joe Smolenski",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-09-03",
+        "location_mentioned": "Victoria, London",
+        "store_location": "Victoria Nova, London, UK",
+        "store_address": "172 Victoria Street, London, SW1E 5LB",
+        "text": "Victoria. This is not the fast food joint it was pre-Covid! Deliveroo seemingly takes presidence over diners and waits are huge for food ordered. Diners are left in a minimum 20 minute wait huddle while staff rush around scratching their heads as to whose Deliveroo collection is whose."
+      },
+      {
+        "reviewer": "Cornel Grant",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-08-30",
+        "location_mentioned": "Lakeside, Essex",
+        "store_location": "Lakeside, Essex, UK",
+        "store_address": null,
+        "text": "Visited Shake shack Lakeside as my daughter raves about it! Spent £28.00 for two people which for a mediocre £2.00 chicken burger was vastly overpriced. Fries were cold and nothing to write home about, milkshake was ok. Absolute waste of money after a 20 minute wait!"
+      },
+      {
+        "reviewer": "Ornelia",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-08-17",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Got food poisoning from shakeshack, never felt so bad in my entire life. Stay healthy and stay away!"
+      },
+      {
+        "reviewer": "Fiona",
+        "country": "GB",
+        "rating": 3,
+        "date": "2021-08-11",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Food was expensive but tasted good and service was quick. We didn't eat in, because we hadn't got a phone with a QR code reader."
+      },
+      {
+        "reviewer": "Priya Rathod",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-08-10",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Considering it's called SHAKE shack, the shakes were rubbish. £5 for something that tastes like milk. Service was poor and toilets were out of order."
+      },
+      {
+        "reviewer": "Syed Rahman",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-08-01",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Over priced tiny portions... why is it so popular?"
+      },
+      {
+        "reviewer": "richard bayley",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-07-26",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Shake Shack have a major software glitch on their payments system. Your own credit card's internet page can state 'payment successful' but it may not have been. The cashier showed me 20-30% of all eat-in orders had failed in this way without the customer being notified. I left hungry and won't be returning."
+      },
+      {
+        "reviewer": "RS",
+        "country": "US",
+        "rating": 2,
+        "date": "2021-05-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Small burger, tasteless shakes, cheap paper straws that don't work, yet very expensive. Not a fan."
+      },
+      {
+        "reviewer": "Mel Dash",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-05-04",
+        "location_mentioned": "Brent Cross, London",
+        "store_location": "Brent Cross, London, UK",
+        "store_address": "Unit S04, Brent Cross Shopping Centre, London, NW4 3FP",
+        "text": "Brent Cross. The Fries were cold. The security came up in me and my partner's face and demanded we left because it was take away only. But didn't say anything to the white couple who had been standing there eating before us. We moved and he came up to us again. Won't be going back."
+      },
+      {
+        "reviewer": "Juliana Almeida",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-03-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Worst place where drivers are mistreated by employees without preparation and with a lot of lack of education."
+      },
+      {
+        "reviewer": "Corey Hillman",
+        "country": "GB",
+        "rating": 3,
+        "date": "2021-03-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Just so so, not really special."
+      },
+      {
+        "reviewer": "Spencer Armitage",
+        "country": "GB",
+        "rating": 1,
+        "date": "2021-01-29",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Cold food, missing items, can't call the restaurant to do anything about it."
+      },
+      {
+        "reviewer": "Alex",
+        "country": "US",
+        "rating": 1,
+        "date": "2020-09-04",
+        "location_mentioned": "MGM National Harbor, MD",
+        "store_location": "MGM National Harbor, MD, US",
+        "store_address": null,
+        "text": "Just went to Shake Shack MGM Natl Harbor. Rude cashier started shouting at me that she could not touch my phone for Samsung Pay. The manager stated Shake Shack does not accept Amex (lie), then stated that SS has disabled the contactless payment option systemwide (lie). SS website clearly states that all locations offer contactless payments. I am livid."
+      },
+      {
+        "reviewer": "Kay",
+        "country": "GB",
+        "rating": 2,
+        "date": "2020-08-27",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Milkshake was really good, everything else was disgusting."
+      },
+      {
+        "reviewer": "Mindy",
+        "country": "US",
+        "rating": 1,
+        "date": "2020-08-16",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Tiny portions! Super expensive with child size portions!! What a rip off!!"
+      },
+      {
+        "reviewer": "Shannon Hartigan",
+        "country": "US",
+        "rating": 1,
+        "date": "2020-06-28",
+        "location_mentioned": "New Jersey",
+        "store_location": null,
+        "store_address": null,
+        "text": "I live in New Jersey and about a month ago I got a fraud alert on my banking app. Long story short Shake Shack had been charging me for months in small increments between $1.50 to $3.00. I disputed the charges and got my money back but the whole situation made me really dislike this company. You are thieves."
+      },
+      {
+        "reviewer": "Silo Price",
+        "country": "US",
+        "rating": 1,
+        "date": "2020-04-22",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I agree with previous poster. They are thieves. Many in my community will never give them our business again even though they returned the loan."
+      },
+      {
+        "reviewer": "Margaret Stewart",
+        "country": "US",
+        "rating": 1,
+        "date": "2020-04-20",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Shake Shack Has forever lost my business. Shame on you for taking $10 million from small businesses. I hope it was worth your cheap hamburger. You are disgusting."
+      },
+      {
+        "reviewer": "peter weston",
+        "country": "GB",
+        "rating": 1,
+        "date": "2020-03-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Not a place to ever go in, disgusting attitude to others."
+      },
+      {
+        "reviewer": "GT",
+        "country": "GB",
+        "rating": 1,
+        "date": "2020-01-31",
+        "location_mentioned": "JFK Airport, NY",
+        "store_location": "JFK Airport, NY, US",
+        "store_address": null,
+        "text": "Absolutely disgusting customer service at JFK airport. Members of staff taking your order literally speaking to you like a piece of dog dirt on their shoe. The girl who served us was acting as if she would have rather been anywhere else. We Ordered 2 diet cokes which they didn't give us and then when we asked we were told 'sorry not on your order.' No apology or nothing!! As a business owner myself I would not have these people anywhere near my business dealing with my customers!!!"
+      },
+      {
+        "reviewer": "HCL",
+        "country": "GB",
+        "rating": 1,
+        "date": "2019-12-17",
+        "location_mentioned": "Lakeside, Essex",
+        "store_location": "Lakeside, Essex, UK",
+        "store_address": null,
+        "text": "Went to their Lakeside outlet & food inedible. Fries returned as cold then replacements only slightly warm. Complained to Shake Shack HQ. They took a week to respond & then demanded copy of my receipt. I immediately sent it to them but they have so far totally ignored. Disgraceful customer service!"
+      },
+      {
+        "reviewer": "customer",
+        "country": "US",
+        "rating": 3,
+        "date": "2019-06-15",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Great food and people not worth the price though for two people is 38 bucks two burgers and fries and drinks."
+      }
+    ]
+  },
+  "sentiment_analysis": {
+    "dominant_negative_themes": [
+      {
+        "rank": 1,
+        "theme": "Price / Value",
+        "description": "Overwhelmingly the #1 complaint. Customers repeatedly call the food 'overpriced' relative to portion size and quality. UK customers especially note £35–43 for two burgers and a drink."
+      },
+      {
+        "rank": 2,
+        "theme": "Declining Quality",
+        "description": "Multiple reviewers describe a downward trend: 'getting worse and worse,' soggy/greasy buns, lukewarm fries, small portions, and inconsistent meat quality."
+      },
+      {
+        "rank": 3,
+        "theme": "Slow Service / Long Waits",
+        "description": "Wait times of 20–30+ minutes for simple orders are frequently cited."
+      },
+      {
+        "rank": 4,
+        "theme": "Cleanliness",
+        "description": "Several reports of dirty kitchen areas, rubbish piled up, and unsanitary delivery packaging."
+      },
+      {
+        "rank": 5,
+        "theme": "Staff Issues",
+        "description": "Reports of inattentive, slow, or rude staff; complaints about unresponsive corporate customer service channels."
+      }
+    ],
+    "dominant_positive_themes": [
+      {
+        "rank": 1,
+        "theme": "Burger Taste (when good)",
+        "description": "Fans describe ShackBurger as a genuinely good burger worth paying extra for over standard fast food."
+      },
+      {
+        "rank": 2,
+        "theme": "Shakes / Drinks",
+        "description": "Milkshakes are consistently praised as 'some of the best in the industry' (CNBC)."
+      },
+      {
+        "rank": 3,
+        "theme": "Clean/Modern Locations",
+        "description": "Select locations (Victoria London, Burlington MA, Gatwick) earn praise for cleanliness and friendly staff."
+      },
+      {
+        "rank": 4,
+        "theme": "Ordering System",
+        "description": "Digital ordering kiosks are appreciated for speed and convenience."
+      },
+      {
+        "rank": 5,
+        "theme": "Gluten-Free Options",
+        "description": "Noted positively by at least one reviewer."
+      }
+    ]
+  },
+  "industry_media_sentiment": [
+    {
+      "source": "CNBC",
+      "quote": "Shake Shack's shakes have been reviewed as 'some of the best in the industry.'"
+    },
+    {
+      "source": "Seattle Times",
+      "date": "2018-11",
+      "quote": "Is Shake Shack really all that? — critical examination of the hype."
+    },
+    {
+      "source": "CBC News",
+      "date": "2024-06",
+      "quote": "Shake Shack's success depends on whether Canadians will shell out for a pricier burger."
+    },
+    {
+      "source": "Forbes",
+      "quote": "Described the company's success as driven by 'the secret sauce' of fine-dining hospitality applied to fast casual."
+    }
+  ],
+  "controversies": [
+    {
+      "event": "PPP Loan Scandal",
+      "year": 2020,
+      "description": "Received $10M in pandemic relief meant for small businesses; returned funds after public backlash. Danny Meyer's USHG separately took $11–27M."
+    },
+    {
+      "event": "NYPD Poisoning Hoax",
+      "year": 2020,
+      "description": "Police unions falsely accused employees of poisoning officers' milkshakes. Investigation cleared Shake Shack; manager later sued NYPD for defamation."
+    },
+    {
+      "event": "Animal Welfare Criticism",
+      "years": "2023–2025",
+      "description": "Identified by The Humane League for failing to report cage-free egg progress; 0% compliance on chicken genetic/slaughter standards as of 2025."
+    },
+    {
+      "event": "D.C. Assault Allegation",
+      "year": 2024,
+      "description": "Gay man alleged assault by employees after kissing his boyfriend at a D.C. location."
+    }
+  ],
+  "sentiment_scores": {
+    "food_quality_taste": 6.5,
+    "food_quality_consistency": 4.5,
+    "value_for_money": 3.0,
+    "service_speed": 4.0,
+    "staff_friendliness": 5.5,
+    "cleanliness": 5.0,
+    "brand_reputation": 6.0,
+    "overall_weighted_sentiment": 4.5,
+    "scale": "1–10"
+  },
+  "bottom_line": "Shake Shack occupies a polarized position — fans love the burger taste and shakes, but a majority of online reviewers feel the price-to-quality ratio has deteriorated, service is inconsistent, and the brand is not living up to its premium positioning."
+}

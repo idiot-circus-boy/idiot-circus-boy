@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JODY P. LEBLANC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff00ff;
+            --neon-blue: #4040ff;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(10, 10, 20, 0.85);
+            --border-glow: rgba(0, 240, 255, 0.15);
+            --text-primary: #e0e0e8;
+            --text-dim: #888898;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === ANIMATED BACKGROUND === */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* === SCANLINE OVERLAY === */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* === NAV === */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        nav .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            margin-right: auto;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        }
+
+        /* === HERO === */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            letter-spacing: 0.2em;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(0, 240, 255, 0.3), 0 0 80px rgba(0, 240, 255, 0.1);
+            animation: glitchIn 1.5s ease-out;
+        }
+
+        .hero .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: clamp(0.7rem, 1.5vw, 1rem);
+            color: var(--neon-cyan);
+            letter-spacing: 0.4em;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeUp 1s 0.8s forwards;
+        }
+
+        .hero .contact-line {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 2rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeUp 1s 1.2s forwards;
+        }
+
+        .hero .contact-line a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: text-shadow 0.3s;
+        }
+
+        .hero .contact-line a:hover {
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s 1.8s forwards, float 3s 2.8s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--neon-cyan), transparent);
+            margin: 0 auto;
+        }
+
+        /* === SECTIONS === */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            letter-spacing: 0.25em;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, var(--neon-cyan), transparent);
+        }
+
+        /* === EXECUTIVE SUMMARY === */
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            border-left: 2px solid var(--neon-cyan);
+            padding-left: 1.5rem;
+            max-width: 900px;
+        }
+
+        /* === COMPETENCY GRID === */
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .competency-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1rem 1.2rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .competency-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--neon-cyan);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .competency-item:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            background: rgba(0, 240, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .competency-item:hover::before {
+            opacity: 1;
+        }
+
+        /* === EXPERIENCE === */
+        .role-block {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(0, 240, 255, 0.1);
+        }
+
+        .role-block::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: -5px;
+            width: 9px; height: 9px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .role-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.1em;
+            color: #fff;
+        }
+
+        .role-org {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--neon-magenta);
+            letter-spacing: 0.05em;
+            margin-top: 0.2rem;
+        }
+
+        .role-date {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            margin-top: 0.2rem;
+        }
+
+        .role-category {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            color: var(--neon-cyan);
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .role-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .role-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .role-bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+        }
+
+        /* === TECH GRID === */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+        }
+
+        .tech-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--neon-cyan);
+            margin-bottom: 0.8rem;
+        }
+
+        .tech-card p {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* === EDUCATION === */
+        .edu-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.06);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-item .edu-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .edu-item .edu-detail {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 0.2rem;
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes glitchIn {
+            0% { opacity: 0; transform: translateY(30px) skewX(-5deg); filter: blur(10px); }
+            60% { opacity: 1; transform: translateY(-5px) skewX(1deg); filter: blur(0); }
+            80% { transform: translateY(2px) skewX(-0.5deg); }
+            100% { transform: translateY(0) skewX(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        /* === SCROLL REVEAL === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav { padding: 0 1rem; }
+            nav a { font-size: 0.65rem; padding: 0.4rem 0.5rem; }
+            .content { padding: 0 1.2rem 4rem; }
+            .role-block { padding-left: 1.2rem; }
+            .hero h1 { letter-spacing: 0.1em; }
+        }
+
+        @media (max-width: 480px) {
+            nav .nav-links { display: none; }
+            .competencies { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav>
+    <div class="logo">JPL</div>
+    <div class="nav-links">
+        <a href="#summary">SUMMARY</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#tech">TECH</a>
+        <a href="#education">EDUCATION</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>JODY P. LEBLANC</h1>
+    <div class="subtitle">SENIOR DATA ENGINEERING &amp; ANALYTICS LEADER</div>
+    <div class="contact-line">
+        <a href="tel:3372574533">(337) 257-4533</a> &nbsp;|&nbsp;
+        <a href="mailto:leblanc.jody.p@gmail.com">leblanc.jody.p@gmail.com</a>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+</section>
+
+<div class="content">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="summary" class="reveal">
+        <div class="section-label">EXECUTIVE SUMMARY</div>
+        <p class="summary-text">
+            Senior data engineering and analytics leader with 20+ years of progressive experience at AT&amp;T, driving enterprise-scale data strategy, platform modernization, and survey-driven customer experience programs. Defined and delivered Copernicus: AT&amp;T's first cross-product, cross-channel customer journey platform adopted by 1,000+ analysts enterprise-wide, fundamentally transforming how the organization understands its customers. Directed three successive cloud migration initiatives (Teradata → Snowflake, on-prem → Azure → serverless Databricks), managing cross-functional teams and multi-year roadmaps. Deep expertise in survey methodology — from program design and vendor selection to metric definition and executive reporting — combined with a modern technical toolkit spanning Snowflake, Databricks, Python, and AI/LLM integration. Known for building high-performing teams, championing self-service tooling that scales analyst productivity, and translating complex data challenges into strategic business outcomes.
+        </p>
+    </section>
+
+    <!-- LEADERSHIP COMPETENCIES -->
+    <section id="competencies" class="reveal">
+        <div class="section-label">LEADERSHIP COMPETENCIES</div>
+        <div class="competencies">
+            <div class="competency-item">Data Strategy &amp; Roadmap</div>
+            <div class="competency-item">Enterprise Platform Architecture</div>
+            <div class="competency-item">Cloud Migration &amp; Modernization</div>
+            <div class="competency-item">Survey Methodology &amp; Design</div>
+            <div class="competency-item">Customer Experience Analytics</div>
+            <div class="competency-item">Cross-Functional Stakeholder Mgmt</div>
+            <div class="competency-item">Team Building &amp; Talent Development</div>
+            <div class="competency-item">Vendor Evaluation &amp; Selection</div>
+            <div class="competency-item">AI / LLM Strategy &amp; Integration</div>
+            <div class="competency-item">Executive Reporting &amp; Communication</div>
+            <div class="competency-item">Agile Delivery &amp; Program Mgmt</div>
+            <div class="competency-item">Cost Optimization &amp; Governance</div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section id="experience" class="reveal">
+        <div class="section-label">PROFESSIONAL EXPERIENCE</div>
+
+        <!-- Role 1 -->
+        <div class="role-block">
+            <div class="role-title">Principal Data / AI Engineer — Associate Director, Advanced Analytics</div>
+            <div class="role-org">AT&amp;T</div>
+            <div class="role-date">2016 – PRESENT</div>
+
+            <div class="role-category">Enterprise Data Platform Strategy &amp; Delivery</div>
+            <ul class="role-bullets">
+                <li>Defined the vision and led delivery of Copernicus, AT&amp;T's first cross-product, cross-channel integrated customer journey platform consolidating 30+ disparate source systems into a unified dataset covering the full Consumer and Business customer base across mobility and wireline products with 3 years of transactional history.</li>
+                <li>Drove adoption to 1,000+ active analysts within 6 months of launch across CDO, Labs, Marketing, Digital, Business, Retail, Centers, and external consulting partners — establishing Copernicus as the enterprise standard for customer journey analytics.</li>
+                <li>Established a portfolio of 9 integrated subject domains (retail sales, IVR/calls/chats, mobility &amp; wireline provisioning, device sales, credits, online transactions, work orders, surveys, billing &amp; payments) enabling analysts to perform holistic, cross-channel customer analysis.</li>
+            </ul>
+
+            <div class="role-category">Cloud Migration &amp; Platform Modernization</div>
+            <ul class="role-bullets">
+                <li>On-Prem → Azure Cloud: Directed full platform migration from Teradata to Snowflake — overseeing refactoring of 1,800 SQL scripts into Python-driven ETL pipelines across 40+ scheduled jobs and 40,000+ lines of code. Managed the transition of on-prem servers to Azure VMs and cloud-based data router software.</li>
+                <li>Azure VMs → Serverless Architecture: Eliminated VM infrastructure dependencies by migrating job orchestration to Databricks and converting listener software to cloud-native app services, reducing operational overhead and improving system reliability.</li>
+                <li>Account Migration + Open-Format Modernization: Led Snowflake account migration with codebase modernization to Snowpark stored procedures, comprehensive event logging, and adoption of Iceberg open-format storage with Databricks Unity Catalog — enabling multi-source querying and reducing compute costs.</li>
+            </ul>
+
+            <div class="role-category">Self-Service Analytics &amp; Innovation Portfolio (2025–2026)</div>
+            <ul class="role-bullets">
+                <li>Championed and delivered a portfolio of self-service data applications to scale analyst productivity including an interactive data model explorer (413 views, 13,307 auto-inferred joins), an AI-powered no-code file-to-database loader with Claude LLM quality analysis, and a customer discovery engine profiling 40 billion rows with 311 validated question/query pairs for conversational analytics.</li>
+                <li>Established a comprehensive GitHub Copilot customization framework (11 skills, 3 specialized agents, MCP server integrations) to accelerate developer velocity across the engineering team — reducing repetitive operational tasks and standardizing deployment, SQL linting, and job management workflows.</li>
+                <li>Directed development of an executive reporting application with manager roll-up views, org hierarchy integration, and automated Word document export streamlining weekly status reporting for leadership.</li>
+                <li>Engineered enterprise data pipeline processing 350M+ US address records from multiple federal and open-source databases with deduplication, incremental loading, and Databricks job orchestration.</li>
+                <li>Designed automated Azure Blob Storage lifecycle management across 5 storage accounts, navigating enterprise firewall constraints to implement batch cleanup and auditing capabilities.</li>
+            </ul>
+
+            <div class="role-category">Team Leadership &amp; Organizational Development</div>
+            <ul class="role-bullets">
+                <li>Led a team of data engineers through three major migration initiatives (2023–2025), managing workloads, setting technical direction, and ensuring on-time delivery of complex, multi-quarter programs.</li>
+                <li>Mentored and onboarded new team members, established coding standards and documentation practices, and guided employees through organizational transitions including RTO — fostering a culture of continuous improvement and knowledge sharing.</li>
+                <li>Preserved and structured institutional knowledge by archiving 605 forum discussions and SQL queries into a searchable Snowflake-backed knowledge base, reducing onboarding time for new analysts and engineers.</li>
+                <li>Served as the go-to cross-organizational subject matter expert for data platform architecture, providing ad hoc analysis and strategic guidance for high-priority initiatives across multiple AT&amp;T business units.</li>
+            </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="role-block">
+            <div class="role-title">Associate Director — Customer Experience Reporting &amp; Analytics / Progressive Roles</div>
+            <div class="role-org">AT&amp;T</div>
+            <div class="role-date">2003 – 2016</div>
+
+            <div class="role-category">Survey Program Management &amp; Methodology</div>
+            <ul class="role-bullets">
+                <li>Directed multiple national-level customer satisfaction survey programs — Wave, Ace, Post-Call, Prepaid, and iPhone satisfaction surveys — serving Customer Care, Retail, Business, Receivables Management, and other AT&amp;T organizations at all reporting levels (national, regional, functional).</li>
+                <li>Owned end-to-end survey operations: program design, sampling methodology, vendor management, ETL pipeline development, metric definition and governance (MSS, WTR, FCR, Overall Satisfaction), and executive stakeholder reporting.</li>
+                <li>Served as SME for survey methodology provider evaluations, ensuring data continuity and reporting integrity during platform transitions while delivering uninterrupted insights to leadership.</li>
+            </ul>
+
+            <div class="role-category">Text Analytics, NLP &amp; Advanced Analytics</div>
+            <ul class="role-bullets">
+                <li>Established the Clarabridge text analytics program — designing data pipelines for real-time and batch NLP processing of unstructured customer verbatim responses, enabling categorization and sentiment analysis at enterprise scale across all survey programs.</li>
+                <li>Led trial analytics for strategic product launches (AT&amp;T Next, MobileShare, VoLTE), delivering what-if analysis and data-driven recommendations to support executive Go/No-Go decisions.</li>
+            </ul>
+
+            <div class="role-category">Data Engineering, Reporting &amp; Team Development</div>
+            <ul class="role-bullets">
+                <li>Built and managed ETL/ELT pipelines across MS SQL Server, Teradata, HP Vertica, Oracle, and MySQL — overseeing database lifecycle management, job scheduling, permissions, and performance tuning.</li>
+                <li>Delivered executive dashboards and operational reports using MicroStrategy, SSRS, SSAS cubes, Excel, SharePoint, and PowerPoint — translating complex data into actionable business intelligence for senior leadership.</li>
+                <li>Grew the internal analytics talent pool by training and mentoring team members on SQL development and reporting tools; administered SharePoint sites and managed workflows for national-scale user communities.</li>
+                <li>Progressed through roles from Customer Service Representative to Associate Director over 13 years, demonstrating consistent ability to take on increasing scope, complexity, and leadership responsibility.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TECHNICAL EXPERTISE -->
+    <section id="tech" class="reveal">
+        <div class="section-label">TECHNICAL EXPERTISE</div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h3>DATA PLATFORMS</h3>
+                <p>Snowflake, Teradata, MS SQL Server, Oracle, HP Vertica, MySQL, Iceberg, Unity Catalog</p>
+            </div>
+            <div class="tech-card">
+                <h3>CLOUD &amp; BIG DATA</h3>
+                <p>Microsoft Azure (VMs, App Service, Blob Storage), Databricks (Jobs, Apps, Spark), PySpark</p>
+            </div>
+            <div class="tech-card">
+                <h3>PROGRAMMING &amp; FRAMEWORKS</h3>
+                <p>Python, SQL, Snowpark, Flask, Pandas, REST APIs, Gunicorn</p>
+            </div>
+            <div class="tech-card">
+                <h3>ETL / ELT &amp; ORCHESTRATION</h3>
+                <p>Python pipelines, SSIS, SQL Server Agent, Stored Procedures, Databricks Workflows</p>
+            </div>
+            <div class="tech-card">
+                <h3>BI &amp; REPORTING</h3>
+                <p>MicroStrategy, SSRS, SSAS, Excel, SharePoint, PowerPoint, python-docx</p>
+            </div>
+            <div class="tech-card">
+                <h3>SURVEY &amp; CX ANALYTICS</h3>
+                <p>Survey design &amp; sampling methodology, NLP/text categorization, sentiment analysis, A/B trial analytics</p>
+            </div>
+            <div class="tech-card">
+                <h3>AI / LLM</h3>
+                <p>Claude API (Databricks Model Serving), GitHub Copilot customization (skills, agents, MCP)</p>
+            </div>
+            <div class="tech-card">
+                <h3>DEVOPS</h3>
+                <p>Git, GitHub (CLI + API), pre-commit hooks, sqlfluff, AzCopy, Databricks CLI</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="reveal">
+        <div class="section-label">EDUCATION &amp; CERTIFICATIONS</div>
+        <div class="edu-item">
+            <div class="edu-title">Louisiana State University at Eunice</div>
+            <div class="edu-detail">Computer Science (1997–1999)</div>
+        </div>
+        <div class="edu-item">
+            <div class="edu-title">Microsoft Certified Professional</div>
+            <div class="edu-detail">2000</div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+// === ANIMATED PARTICLE BACKGROUND ===
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let w, h;
+
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.alpha = Math.random() * 0.4 + 0.1;
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 240, 255, ${this.alpha})`;
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(0, 240, 255, ${0.06 * (1 - dist / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    connectParticles();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// === SCROLL REVEAL ===
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
