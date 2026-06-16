@@ -31,7 +31,6 @@ document.querySelectorAll(".icon-link").forEach((link) => {
     overlay.innerHTML = `
       <div class="page-transition-mark">
         <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
-        <span>${link.textContent.trim()}</span>
       </div>
     `;
 
@@ -56,7 +55,7 @@ document.querySelectorAll(".icon-link").forEach((link) => {
       }
 
       window.location.href = destination.href;
-    }, 760);
+    }, 1300);
   });
 });
 
