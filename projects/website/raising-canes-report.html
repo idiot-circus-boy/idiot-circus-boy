@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raising Cane's Sentiment Report — JPL</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff00ff;
+            --neon-blue: #4040ff;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(10, 10, 20, 0.85);
+            --border-glow: rgba(0, 240, 255, 0.15);
+            --text-primary: #e0e0e8;
+            --text-dim: #888898;
+            --red: #ff4060;
+            --green: #00e676;
+            --yellow: #ffd740;
+            --orange: #ff9100;
+        }
+
+        body.light-mode {
+            --neon-cyan: #0077aa;
+            --neon-magenta: #aa0077;
+            --neon-blue: #2020aa;
+            --dark-bg: #f0f0f5;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --border-glow: rgba(0, 119, 170, 0.2);
+            --text-primary: #1a1a2e;
+            --text-dim: #555566;
+        }
+
+        body.light-mode nav { background: rgba(240, 240, 245, 0.95); }
+        body.light-mode .page-header h1 { color: #1a1a2e; }
+        body.light-mode::after { display: none; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === SCANLINE OVERLAY === */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* === ANIMATED BACKGROUND === */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* === NAV === */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        nav .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            margin-right: auto;
+        }
+
+        nav .logo a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        }
+
+        nav a.active {
+            color: var(--neon-cyan);
+        }
+
+        /* === PAGE HEADER === */
+        .page-header {
+            position: relative;
+            z-index: 1;
+            padding: 120px 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            letter-spacing: 0.15em;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+            animation: glitchIn 1.5s ease-out;
+        }
+
+        .page-header .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+            color: var(--neon-cyan);
+            letter-spacing: 0.4em;
+            margin-top: 0.8rem;
+            opacity: 0;
+            animation: fadeUp 1s 0.5s forwards;
+        }
+
+        .page-header .compiled {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 1s 0.8s forwards;
+        }
+
+        /* === CONTENT === */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        section { margin-bottom: 4rem; }
+
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            letter-spacing: 0.25em;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 80px; height: 2px;
+            background: linear-gradient(to right, var(--neon-cyan), transparent);
+        }
+
+        /* === VERDICT BANNER === */
+        .verdict-banner {
+            background: linear-gradient(135deg, rgba(255, 64, 96, 0.08), rgba(255, 0, 255, 0.05));
+            border: 1px solid rgba(255, 64, 96, 0.25);
+            padding: 1.5rem 2rem;
+            margin-bottom: 4rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            border-left: 3px solid var(--red);
+        }
+
+        .verdict-banner strong {
+            color: var(--red);
+        }
+
+        /* === KEY METRICS GRID === */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.05);
+        }
+
+        .metric-card {
+            position: relative;
+            cursor: default;
+        }
+
+        .metric-card .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 20, 0.96);
+            border: 1px solid var(--border-glow);
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.03em;
+            line-height: 1.5;
+            padding: 0.6rem 0.8rem;
+            width: 220px;
+            text-align: left;
+            white-space: normal;
+            z-index: 50;
+            pointer-events: none;
+            transition: opacity 0.25s, visibility 0.25s;
+        }
+
+        .metric-card .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--border-glow);
+        }
+
+        .metric-card:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .metric-card .metric-value {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-card .metric-label {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .val-red { color: var(--red); text-shadow: 0 0 15px rgba(255, 64, 96, 0.4); }
+        .val-cyan { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .val-yellow { color: var(--yellow); text-shadow: 0 0 15px rgba(255, 215, 64, 0.4); }
+        .val-orange { color: var(--orange); text-shadow: 0 0 15px rgba(255, 145, 0, 0.4); }
+        .val-magenta { color: var(--neon-magenta); text-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
+
+        /* === STAR BREAKDOWN === */
+        .star-breakdown {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.5rem 2rem;
+        }
+
+        .star-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            gap: 0.8rem;
+        }
+
+        .star-row:last-child { margin-bottom: 0; }
+
+        .star-label {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            width: 55px;
+            flex-shrink: 0;
+        }
+
+        .star-bar-track {
+            flex: 1;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .star-bar-fill {
+            height: 100%;
+            transition: width 1.5s ease;
+        }
+
+        .star-pct {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            width: 40px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* === SENTIMENT THEMES === */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .theme-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.5rem;
+        }
+
+        .theme-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-card h3.negative { color: var(--red); }
+        .theme-card h3.positive { color: var(--green); }
+
+        .theme-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .theme-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .theme-list li::before {
+            position: absolute;
+            left: 0;
+            font-size: 0.85rem;
+        }
+
+        .theme-card .negative-list li::before { content: '✗'; color: var(--red); }
+        .theme-card .positive-list li::before { content: '▹'; color: var(--green); }
+
+        .theme-list li strong {
+            color: #fff;
+        }
+
+        /* === SCORE TABLE === */
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+        }
+
+        .score-table th,
+        .score-table td {
+            padding: 0.8rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.06);
+        }
+
+        .score-table th {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            background: rgba(0, 240, 255, 0.03);
+        }
+
+        .score-table td {
+            font-size: 0.9rem;
+        }
+
+        .score-table td:last-child {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            text-align: center;
+            width: 100px;
+        }
+
+        .score-bar-cell {
+            width: 200px;
+        }
+
+        .score-bar-track {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            transition: width 1.5s ease;
+        }
+
+        /* === PEER COMPARISON === */
+        .peer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .peer-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .peer-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+        }
+
+        .peer-card.highlight {
+            border-color: rgba(0, 240, 255, 0.5);
+            background: rgba(0, 240, 255, 0.04);
+        }
+
+        .peer-card .peer-name {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+        }
+
+        .peer-card .peer-score {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* === CONTROVERSIES === */
+        .controversy-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .controversy-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.2rem 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .controversy-item .year-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--neon-magenta);
+            background: rgba(255, 0, 255, 0.08);
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            padding: 0.3rem 0.6rem;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        .controversy-item .controversy-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .controversy-item .controversy-desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* === REVIEW QUOTES === */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        .quote-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 1.3rem 1.5rem;
+            position: relative;
+        }
+
+        .quote-card.pos { border-left: 3px solid var(--green); }
+        .quote-card.neg { border-left: 3px solid var(--red); }
+
+        .quote-card .quote-text {
+            font-size: 0.88rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .quote-card .quote-text::before { content: '\201C'; color: var(--text-dim); }
+        .quote-card .quote-text::after { content: '\201D'; color: var(--text-dim); }
+
+        .quote-card .quote-author {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+        }
+
+        .quote-stars {
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .quote-stars .filled { color: var(--yellow); }
+        .quote-stars .empty { color: rgba(255, 255, 255, 0.1); }
+
+        /* === MEDIA MENTIONS === */
+        .media-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .media-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.06);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .media-list li:last-child { border-bottom: none; }
+
+        .media-list li strong {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+        }
+
+        /* === FOOTER === */
+        .report-footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            border-top: 1px solid var(--border-glow);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes glitchIn {
+            0% { opacity: 0; transform: translateY(30px) skewX(-5deg); filter: blur(10px); }
+            60% { opacity: 1; transform: translateY(-5px) skewX(1deg); filter: blur(0); }
+            80% { transform: translateY(2px) skewX(-0.5deg); }
+            100% { transform: translateY(0) skewX(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === MAP === */
+        #review-map {
+            width: 100%;
+            height: 520px;
+            border: 1px solid var(--border-glow);
+            background: #0a0a12;
+        }
+
+        .map-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.8rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            flex-wrap: wrap;
+        }
+
+        .map-legend span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(10, 10, 20, 0.95) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-glow) !important;
+            border-radius: 4px !important;
+            font-family: 'Rajdhani', sans-serif !important;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1) !important;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(10, 10, 20, 0.95) !important;
+            border: 1px solid var(--border-glow) !important;
+            border-top: none !important;
+            border-left: none !important;
+        }
+
+        .leaflet-popup-content {
+            margin: 10px 14px !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
+        }
+
+        .leaflet-popup-content .popup-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--neon-cyan);
+            margin-bottom: 0.4rem;
+        }
+
+        .leaflet-popup-content .popup-score {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin: 0.3rem 0;
+        }
+
+        .leaflet-popup-content .popup-review {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-top: 0.5rem;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            padding-top: 0.5rem;
+        }
+
+        .leaflet-popup-content .popup-reviewer {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 0.3rem;
+        }
+
+        .leaflet-popup-close-button {
+            color: var(--neon-cyan) !important;
+        }
+
+        /* === THEME TOGGLE === */
+        .theme-toggle {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .theme-toggle-label {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+        }
+
+        .theme-toggle-switch {
+            position: relative;
+            width: 32px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .theme-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-toggle-slider {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle-slider::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 2px;
+            bottom: 2px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 0 6px var(--neon-cyan);
+        }
+
+        .theme-toggle-switch input:checked + .theme-toggle-slider {
+            background: rgba(0, 119, 170, 0.15);
+        }
+
+        .theme-toggle-switch input:checked + .theme-toggle-slider::before {
+            transform: translateX(16px);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav { padding: 0 1rem; }
+            nav a { font-size: 0.65rem; padding: 0.4rem 0.5rem; }
+            .content { padding: 0 1.2rem 4rem; }
+            .themes-grid { grid-template-columns: 1fr; }
+            .quotes-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            nav .nav-links { display: none; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .peer-grid { grid-template-columns: repeat(2, 1fr); }
+            .controversy-item { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav>
+    <div class="logo"><a href="index.html">JPL</a></div>
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="#overview">OVERVIEW</a>
+        <a href="#map">MAP</a>
+        <a href="#sentiment">SENTIMENT</a>
+        <a href="#scores">SCORES</a>
+        <a href="#reviews">REVIEWS</a>
+    </div>
+    <div class="theme-toggle">
+        <span class="theme-toggle-label">DARK</span>
+        <label class="theme-toggle-switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="theme-toggle-slider"></span>
+        </label>
+        <span class="theme-toggle-label">LIGHT</span>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>RAISING CANE'S</h1>
+    <div class="subtitle">REVIEWS, METRICS &amp; SENTIMENT ANALYSIS</div>
+    <div class="compiled">Compiled April 9, 2026 &mdash; 93 Trustpilot reviews analyzed (of 161 total)</div>
+</div>
+
+<div class="content">
+
+    <!-- VERDICT -->
+    <div class="verdict-banner reveal">
+        <strong>Bottom Line:</strong> Raising Cane's has a fiercely loyal core fanbase drawn to the chicken fingers and signature Cane's Sauce, but a majority of online reviewers report bland, unseasoned food, shrinking portions, and aggressive pricing &mdash; especially the controversial extra-sauce upcharge. The ultra-limited "ONE LOVE" menu is polarizing: devotees call it focused, critics call it lazy. Overall weighted sentiment scores <strong>4.3 / 10</strong>.
+    </div>
+
+    <!-- KEY METRICS -->
+    <section id="overview" class="reveal">
+        <div class="section-label">KEY METRICS</div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="tooltip">Total number of Trustpilot reviews collected and analyzed for this report (29 positive, 64 negative).</span>
+                <div class="metric-value val-cyan">93</div>
+                <div class="metric-label">Reviews Analyzed</div>
+            </div>
+            <div class="metric-card">
+                <span class="tooltip">Average star rating across all 161 Trustpilot reviews on a 1&ndash;5 scale. Scores below 3.0 indicate predominantly negative sentiment.</span>
+                <div class="metric-value val-red">2.1<span style="font-size:0.9rem;color:var(--text-dim)"> / 5</span></div>
+                <div class="metric-label">Trustpilot Score</div>
+            </div>
+            <div class="metric-card">
+                <span class="tooltip">Percentage of reviews that gave the lowest possible rating (1 star). A high value signals widespread dissatisfaction.</span>
+                <div class="metric-value val-red">54%</div>
+                <div class="metric-label">1-Star Reviews</div>
+            </div>
+            <div class="metric-card">
+                <span class="tooltip">Total number of Raising Cane's restaurant locations across the US and internationally.</span>
+                <div class="metric-value val-cyan">800+</div>
+                <div class="metric-label">Total Locations</div>
+            </div>
+            <div class="metric-card">
+                <span class="tooltip">Estimated total company revenue for fiscal year 2023. Raising Cane's is privately held.</span>
+                <div class="metric-value val-yellow">$3.7B</div>
+                <div class="metric-label">Revenue (2023 est.)</div>
+            </div>
+            <div class="metric-card">
+                <span class="tooltip">Estimated company valuation as of 2024. Sole owner: Todd Graves.</span>
+                <div class="metric-value val-orange">$9.5B</div>
+                <div class="metric-label">Valuation (2024)</div>
+            </div>
+        </div>
+
+        <!-- STAR BREAKDOWN -->
+        <div class="star-breakdown">
+            <div class="star-row">
+                <span class="star-label">5-star</span>
+                <div class="star-bar-track">
+                    <div class="star-bar-fill" style="width:22%;background:var(--green);"></div>
+                </div>
+                <span class="star-pct" style="color:var(--green)">22%</span>
+            </div>
+            <div class="star-row">
+                <span class="star-label">4-star</span>
+                <div class="star-bar-track">
+                    <div class="star-bar-fill" style="width:3%;background:var(--green);opacity:0.7;"></div>
+                </div>
+                <span class="star-pct" style="color:var(--green)">3%</span>
+            </div>
+            <div class="star-row">
+                <span class="star-label">3-star</span>
+                <div class="star-bar-track">
+                    <div class="star-bar-fill" style="width:5%;background:var(--yellow);"></div>
+                </div>
+                <span class="star-pct" style="color:var(--yellow)">5%</span>
+            </div>
+            <div class="star-row">
+                <span class="star-label">2-star</span>
+                <div class="star-bar-track">
+                    <div class="star-bar-fill" style="width:16%;background:var(--orange);"></div>
+                </div>
+                <span class="star-pct" style="color:var(--orange)">16%</span>
+            </div>
+            <div class="star-row">
+                <span class="star-label">1-star</span>
+                <div class="star-bar-track">
+                    <div class="star-bar-fill" style="width:54%;background:var(--red);"></div>
+                </div>
+                <span class="star-pct" style="color:var(--red)">54%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE REVIEW MAP -->
+    <section id="map" class="reveal">
+        <div class="section-label">REVIEW LOCATION MAP</div>
+        <div id="review-map"></div>
+        <div class="map-legend">
+            <span><span class="legend-dot" style="background:#00e676;"></span> Positive (4-5 &#9733;)</span>
+            <span><span class="legend-dot" style="background:#ffd740;"></span> Mixed (3 &#9733;)</span>
+            <span><span class="legend-dot" style="background:#ff4060;"></span> Negative (1-2 &#9733;)</span>
+            <span style="color:var(--text-dim);opacity:0.6;">Circle size = number of reviews</span>
+        </div>
+    </section>
+
+    <!-- SENTIMENT THEMES -->
+    <section id="sentiment" class="reveal">
+        <div class="section-label">SENTIMENT THEMES</div>
+        <div class="themes-grid">
+            <div class="theme-card">
+                <h3 class="negative">&#x2716; DOMINANT NEGATIVES</h3>
+                <ul class="theme-list negative-list">
+                    <li><strong>Bland / Unseasoned Food</strong> &mdash; #1 complaint. Chicken described as "flavorless," "zero seasoning," needing sauce to be edible. Compared to frozen store-bought.</li>
+                    <li><strong>Price / Value</strong> &mdash; $11+ for 4 tiny fingers, $18 for a 6-finger meal, $70 for a family of 4. Customers call it "corporate greed."</li>
+                    <li><strong>Declining Portions</strong> &mdash; Repeat customers note chicken fingers getting smaller, fries undercooked or soggy, inconsistency across locations.</li>
+                    <li><strong>Order Accuracy</strong> &mdash; Frequent missing sauce, missing sides, wrong drinks, incomplete large orders.</li>
+                    <li><strong>Limited Menu</strong> &mdash; "ONE LOVE" concept is polarizing. No alternatives for non-chicken-finger fans. Only one signature sauce.</li>
+                    <li><strong>Sauce Upcharge Policy</strong> &mdash; Charging $0.42+ for extra Cane's Sauce viewed as stingy and insulting, especially on large orders.</li>
+                </ul>
+            </div>
+            <div class="theme-card">
+                <h3 class="positive">&#x25B9; DOMINANT POSITIVES</h3>
+                <ul class="theme-list positive-list">
+                    <li><strong>Chicken Quality (When Good)</strong> &mdash; Fans describe chicken as "juicy," "crispy," "delicious," and the best chicken fingers available.</li>
+                    <li><strong>Cane's Sauce</strong> &mdash; Proprietary dipping sauce has a cult following, described as "addicting."</li>
+                    <li><strong>Fast Service</strong> &mdash; Drive-thru praised for speed and efficiency at select locations. "8 seconds" cited.</li>
+                    <li><strong>Friendly Staff</strong> &mdash; Multiple employees praised by name for exceptional service.</li>
+                    <li><strong>Loyal Fan Base</strong> &mdash; Long-time Louisiana customers especially loyal, noting the brand has been reliable for years.</li>
+                    <li><strong>Texas Toast</strong> &mdash; Consistently cited as a meal highlight alongside the chicken.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERALL SENTIMENT SCORES -->
+    <section id="scores" class="reveal">
+        <div class="section-label">OVERALL SENTIMENT SCORES</div>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th class="score-bar-cell">Score</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Food Quality (Taste)</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--yellow);"></div></div></td>
+                    <td style="color:var(--yellow)">5.5</td>
+                </tr>
+                <tr>
+                    <td>Food Quality (Consistency)</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:40%;background:var(--orange);"></div></div></td>
+                    <td style="color:var(--orange)">4.0</td>
+                </tr>
+                <tr>
+                    <td>Value for Money</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:35%;background:var(--red);"></div></div></td>
+                    <td style="color:var(--red)">3.5</td>
+                </tr>
+                <tr>
+                    <td>Service Speed</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--yellow);"></div></div></td>
+                    <td style="color:var(--yellow)">5.5</td>
+                </tr>
+                <tr>
+                    <td>Staff Friendliness</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:50%;background:var(--yellow);"></div></div></td>
+                    <td style="color:var(--yellow)">5.0</td>
+                </tr>
+                <tr>
+                    <td>Cleanliness</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--yellow);"></div></div></td>
+                    <td style="color:var(--yellow)">5.5</td>
+                </tr>
+                <tr>
+                    <td>Menu Variety</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:20%;background:var(--red);"></div></div></td>
+                    <td style="color:var(--red)">2.0</td>
+                </tr>
+                <tr>
+                    <td>Brand Reputation</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:65%;background:var(--yellow);"></div></div></td>
+                    <td style="color:var(--yellow)">6.5</td>
+                </tr>
+                <tr style="background:rgba(0,240,255,0.03);">
+                    <td style="color:#fff;font-weight:600;">Weighted Overall</td>
+                    <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill" style="width:43%;background:var(--neon-cyan);"></div></div></td>
+                    <td style="color:var(--neon-cyan);font-weight:700;">4.3</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- TRUSTPILOT PEER COMPARISON -->
+    <section class="reveal">
+        <div class="section-label">TRUSTPILOT PEER COMPARISON</div>
+        <div class="peer-grid">
+            <div class="peer-card">
+                <div class="peer-name">Wingstop</div>
+                <div class="peer-score val-yellow">2.8</div>
+            </div>
+            <div class="peer-card">
+                <div class="peer-name">Chick-fil-A</div>
+                <div class="peer-score val-yellow">2.7</div>
+            </div>
+            <div class="peer-card">
+                <div class="peer-name">Popeyes</div>
+                <div class="peer-score val-orange">2.5</div>
+            </div>
+            <div class="peer-card">
+                <div class="peer-name">KFC</div>
+                <div class="peer-score val-orange">2.5</div>
+            </div>
+            <div class="peer-card">
+                <div class="peer-name">Taco Bell</div>
+                <div class="peer-score val-orange">2.3</div>
+            </div>
+            <div class="peer-card highlight">
+                <div class="peer-name">Raising Cane's</div>
+                <div class="peer-score val-cyan">2.1</div>
+            </div>
+            <div class="peer-card">
+                <div class="peer-name">McDonald's</div>
+                <div class="peer-score val-red">1.6</div>
+            </div>
+        </div>
+        <p style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:var(--text-dim);margin-top:0.8rem;letter-spacing:0.05em;">
+            Note: Trustpilot skews toward complaint-driven reviews. Most QSR chains score low. Peer set focused on chicken-forward competitors.
+        </p>
+    </section>
+
+    <!-- NOTABLE CONTROVERSIES -->
+    <section class="reveal">
+        <div class="section-label">NOTABLE CONTROVERSIES</div>
+        <div class="controversy-list">
+            <div class="controversy-item">
+                <span class="year-badge">2024</span>
+                <div>
+                    <div class="controversy-title">Todd Graves Billionaire Status</div>
+                    <div class="controversy-desc">Forbes profiled sole owner as one of America's richest self-made entrepreneurs; company valued at $9.5B. Prompted accusations of "corporate greed" from customers facing menu price hikes.</div>
+                </div>
+            </div>
+            <div class="controversy-item">
+                <span class="year-badge">2023&ndash;26</span>
+                <div>
+                    <div class="controversy-title">Sauce Upcharge Policy</div>
+                    <div class="controversy-desc">Ongoing customer backlash over charging $0.42+ for extra Cane's Sauce. One reviewer paid $20 extra for sauce on a 50-piece catering order. Social media outrage recurring.</div>
+                </div>
+            </div>
+            <div class="controversy-item">
+                <span class="year-badge">2022&ndash;26</span>
+                <div>
+                    <div class="controversy-title">Rapid Expansion / Quality Decline</div>
+                    <div class="controversy-desc">As locations expanded from ~600 to 800+, reviewers note growing inconsistency and declining quality at newer locations compared to original Louisiana stores.</div>
+                </div>
+            </div>
+            <div class="controversy-item">
+                <span class="year-badge">2024</span>
+                <div>
+                    <div class="controversy-title">Environmental Concerns</div>
+                    <div class="controversy-desc">Criticized for continued use of styrofoam containers, plastic bags, and plastic silverware despite industry trends toward sustainable packaging.</div>
+                </div>
+            </div>
+            <div class="controversy-item">
+                <span class="year-badge">2023&ndash;25</span>
+                <div>
+                    <div class="controversy-title">Employee Complaints</div>
+                    <div class="controversy-desc">Anonymous employee reviews allege micromanagement, overextending crew members, and corporate suppressing negative customer feedback.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGIONAL SENTIMENT -->
+    <section class="reveal">
+        <div class="section-label">REGIONAL SENTIMENT ANALYSIS</div>
+        <p style="color:var(--text-dim); margin-bottom:1.5rem; font-family:'Share Tech Mono',monospace; font-size:0.9rem;">
+            Sentiment varies significantly by geography. The <strong style="color:#00e676;">Middle East</strong> locations (Saudi Arabia, Bahrain) show universally positive sentiment (avg 5.0/5), while the <strong style="color:#ff4060;">Midwest US</strong> (IL, IN, MN, MO, UT) is the worst-performing region at 1.33/5. Louisiana &mdash; Cane's home state &mdash; scores a surprisingly low 2.12/5, suggesting even hometown fans are not immune to quality complaints. Texas locations also underperform at 2.0/5, dragged down by food safety and hygiene complaints (Killeen, Houston).
+        </p>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Reviews</th>
+                    <th>Avg Rating</th>
+                    <th>Signal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Middle East (SA, BH)</td><td>5</td><td style="color:#00e676;">5.00</td><td>&#128994; Universally positive</td></tr>
+                <tr><td>West US (CA, CO, AZ, NV, ID)</td><td>7</td><td style="color:#ffd740;">3.00</td><td>&#128992; Mixed &mdash; varies by location</td></tr>
+                <tr><td>Ohio</td><td>3</td><td style="color:#ffd740;">2.33</td><td>&#128992; Leaning negative</td></tr>
+                <tr><td>Louisiana (home state)</td><td>8</td><td style="color:#ff4060;">2.12</td><td>&#128308; Surprising &mdash; even locals frustrated</td></tr>
+                <tr><td>Florida</td><td>4</td><td style="color:#ff4060;">2.00</td><td>&#128308; Grand openings disappoint</td></tr>
+                <tr><td>Mid-Atlantic (VA, MD, DC, PA)</td><td>4</td><td style="color:#ff4060;">2.00</td><td>&#128308; New-market growing pains</td></tr>
+                <tr><td>Texas</td><td>5</td><td style="color:#ff4060;">2.00</td><td>&#128308; Food safety concerns (Killeen)</td></tr>
+                <tr><td>Midwest US (IL, IN, MN, MO, UT)</td><td>6</td><td style="color:#ff4060;">1.33</td><td>&#128308; Worst-performing region</td></tr>
+            </tbody>
+        </table>
+        <p style="color:var(--text-dim); margin-top:1rem; font-family:'Share Tech Mono',monospace; font-size:0.85rem;">
+            <strong>Key takeaway:</strong> International markets love Raising Cane's. In the US, locations in Cane's expansion markets (Midwest, Mid-Atlantic, Florida) consistently underperform the brand's Louisiana roots &mdash; but even Louisiana isn't scoring well. The Western US (Arizona, Nevada) is the strongest domestic region.
+        </p>
+    </section>
+
+    <!-- SENTIMENT OVER TIME -->
+    <section class="reveal">
+        <div class="section-label">SENTIMENT OVER TIME</div>
+        <p style="color:var(--text-dim); margin-bottom:1.5rem; font-family:'Share Tech Mono',monospace; font-size:0.9rem;">
+            Review sentiment peaked in <strong style="color:#00e676;">2024</strong> (avg 3.35/5) &mdash; the year Cane's crossed 800 locations and earned a $9.5B valuation from Forbes. But the <strong style="color:#ff4060;">2025 downturn is dramatic</strong>: the average plummeted to 2.0/5 with 76% of reviews negative, signaling that rapid expansion may be outpacing quality control.
+        </p>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Reviews</th>
+                    <th>Avg Rating</th>
+                    <th>Positive</th>
+                    <th>Negative</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2018</td><td>1</td><td style="color:#00e676;">4.00</td><td>1</td><td>0</td></tr>
+                <tr><td>2021</td><td>10</td><td style="color:#ffd740;">2.60</td><td>3</td><td>6</td></tr>
+                <tr><td>2022</td><td>8</td><td style="color:#ffd740;">2.88</td><td>4</td><td>4</td></tr>
+                <tr><td>2023</td><td>15</td><td style="color:#ff4060;">1.87</td><td>3</td><td>12</td></tr>
+                <tr><td>2024</td><td>17</td><td style="color:#00e676;">3.35</td><td>10</td><td>7</td></tr>
+                <tr><td style="color:#ff00ff;">2025</td><td style="color:#ff00ff;">34</td><td style="color:#ff4060;">2.00</td><td>6</td><td style="color:#ff4060;">26</td></tr>
+                <tr><td>2026 (YTD)</td><td>8</td><td style="color:#ff4060;">2.00</td><td>1</td><td>7</td></tr>
+            </tbody>
+        </table>
+        <p style="color:var(--text-dim); margin-top:1rem; font-family:'Share Tech Mono',monospace; font-size:0.85rem;">
+            <strong>Trend:</strong> &#128308; <strong style="color:#ff4060;">Declining.</strong> After a brief 2024 recovery, sentiment is falling sharply. The 2025&ndash;2026 data shows an 87.5% negative review rate among non-loyalists. Common 2025+ complaints center on <em>shrinkflation</em>, the <em>sauce upcharge</em>, and <em>inconsistency at newer locations</em> &mdash; all hallmarks of rapid-growth quality erosion.
+        </p>
+    </section>
+
+    <!-- SELECTED REVIEWS -->
+    <section id="reviews" class="reveal">
+        <div class="section-label">SELECTED REVIEWS</div>
+        <div class="quotes-grid">
+            <div class="quote-card pos">
+                <div class="quote-text">Today marked an awe-inspiring return to Raising Cane's at 1120 E Flamingo Rd in Las Vegas. A special spotlight on Louis and Jasmine, the maestros of exceptional service. Your visit will be more than a meal; it will be a masterclass in customer satisfaction.</div>
+                <div class="quote-author">Daniel Girtley (US)
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Over $11 for four TINY little bland chicken fingers, coleslaw with ZERO flavor, and crinkle fries that look and taste like they were from the Dollar Tree. The Texas toast tasted like a bland piece of bread. The ONLY good part was the Coke Zero.</div>
+                <div class="quote-author">Jae La Salla (US)
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">Two years later and this restaurant continues to prove how amazing it is! Excellent tasty tenders, fries, toast and lemonade! The customer service is spot on and it is always an unforgettable experience. The cane sauce is addicting.</div>
+                <div class="quote-author">whypeoplewhyy (US)
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Had Raising Cane's 3 finger take out. I wanted the 6 finger, but $18 for a meal for one from fast food is ridiculous. This isn't inflation. This is corporate greed.</div>
+                <div class="quote-author">Rebecca Nolen (US)
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">I recently tried Cane's in Ohio for the first time, and I was impressed! The chicken was incredibly juicy and tender, and while it's not the cheapest option, the price feels reasonable for the quality. Highly recommend the 20 Tender Combo.</div>
+                <div class="quote-author">Mr. Z (US)
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;</span><span class="empty">&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Ordered 50 pieces of chicken along with fries and toast. Got no sauce with the chicken. Was told I had to order it separately. So I had to pay an additional $20 to get sauce. Totally ridiculous!</div>
+                <div class="quote-author">Jessica Howard (US)
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">We're a family of 9. UNANIMOUS review that Raising Canes is not worth the money unless you're looking for generic, tasteless fries, toast, and Costco quality chicken fingers. EVERYTHING was like it came out of a FROZEN CARDBOARD BOX.</div>
+                <div class="quote-author">Woodrow VanCott (US)
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;</span><span class="empty">&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">I've been going to Raising Cane's since it opened in Baton Rouge, now I'm in Texas, and must eat it once a month. It's always pretty solid.</div>
+                <div class="quote-author">James Proctor (US)
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Ordered $80 worth of food and got food poisoning due to undercooked chicken. I was on the toilet for days holding a trash can puking. The company did not refund us or make it right or apologize. The Killeen location in TX is unsanitary.</div>
+                <div class="quote-author">Erikah Petro (US) &mdash; Killeen, TX
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">Ate at the new Raising Canes on Gulf to Bay Blvd in Clearwater, FL. The food was delicious. Texas toast was amazing, fresh. Chicken was hot, moist. Fries were awesome. This one is a winner!</div>
+                <div class="quote-author">Karen M (US) &mdash; Clearwater, FL
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">When I took my second bite out of the chicken I bit into something that shattered and broke my front tooth clear down to the bone. I filed a complaint and they turned it over to their insurance company only to be called a liar.</div>
+                <div class="quote-author">Charles (US) &mdash; Mishawaka, IN
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">Travelled from Roanoke to try Raising Cane's. It was a phenomenal experience. Best food I've ever eaten. If you haven't tried it you should.</div>
+                <div class="quote-author">Riley Glavas (US) &mdash; Roanoke, VA
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Todd Graves and Canes publicized that LSU Women's Basketball Team would be there. Fans were allowed inside at 11:15 and the team left at 11:30. This was strictly publicity for Todd Graves. We will never set foot in another Raising Canes.</div>
+                <div class="quote-author">NanC (US) &mdash; Baton Rouge, LA
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">Menu is extremely limited. Absolutely tasteless &mdash; no spices used. Fries were wobbly, not cooked to order. Coleslaw had no taste. Texas bread tasted like bread dough. Go to KFC, Chik-Fil-A, or Culver's if you want food to taste good.</div>
+                <div class="quote-author">W.W. B.B. (US) &mdash; Crystal Lake, IL
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card pos">
+                <div class="quote-text">Good comfort food. The manager at Amarillo TX on Georgia St was very high energy and it was obvious she enjoyed being there. Great crinkle cut fries.</div>
+                <div class="quote-author">Texas girl (US) &mdash; Amarillo, TX
+                    <span class="quote-stars"><span class="filled">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">The young man was so fast speaking that we couldn't understand him at all. Box combos had 3 not 4 tiny pinky sized chicken strips each. Cost was almost $40. The meal was cold, seriously semi-frozen. This was my last visit.</div>
+                <div class="quote-author">Crissy (US) &mdash; Tulsa Hills, OK
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+            <div class="quote-card neg">
+                <div class="quote-text">I saw the manager at the South Carrollton location in New Orleans get her hair braided while on the clock. The line in the drive thru was long, there was no tea or lemonade made. The management team is not professional at all.</div>
+                <div class="quote-author">mona (US) &mdash; New Orleans, LA
+                    <span class="quote-stars"><span class="filled">&#9733;</span><span class="empty">&#9733;&#9733;&#9733;&#9733;</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDIA SENTIMENT -->
+    <section class="reveal">
+        <div class="section-label">INDUSTRY &amp; MEDIA SENTIMENT</div>
+        <ul class="media-list">
+            <li><strong>Forbes</strong> &mdash; Named Todd Graves among America's richest self-made entrepreneurs; company valued at $9.5 billion (2024).</li>
+            <li><strong>Business Insider</strong> &mdash; "Raising Cane's quietly became one of America's fastest-growing restaurant chains."</li>
+            <li><strong>Nation's Restaurant News</strong> &mdash; Ranked among top 10 fastest-growing restaurant chains for multiple consecutive years.</li>
+            <li><strong>USA Today</strong> &mdash; Featured in "Best Fast Food Chicken" rankings for simplicity and quality.</li>
+            <li><strong>QSR Magazine</strong> &mdash; Recognized for strong unit economics and customer loyalty despite ultra-limited menu.</li>
+        </ul>
+    </section>
+
+</div>
+
+<div class="report-footer">
+    Sources: Trustpilot (93 of 161 reviews analyzed) &bull; Wikipedia &bull; Forbes &bull; Business Insider &bull; Nation's Restaurant News &bull; QSR Magazine &bull; raisingcanes.com
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// === ANIMATED PARTICLE BACKGROUND ===
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let w, h;
+
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+    constructor() { this.reset(); }
+    reset() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.alpha = Math.random() * 0.4 + 0.1;
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 240, 255, ${this.alpha})`;
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(0, 240, 255, ${0.06 * (1 - dist / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    connectParticles();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// === SCROLL REVEAL ===
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1 });
+revealElements.forEach(el => observer.observe(el));
+
+// === INTERACTIVE REVIEW MAP ===
+const locationData = [
+    {
+        name: "Las Vegas, NV (E Flamingo Rd)",
+        lat: 36.1162, lng: -115.1517,
+        reviews: [
+            { reviewer: "Daniel Girtley", country: "US", rating: 5, text: "An awe-inspiring return. Louis and Jasmine, the maestros of exceptional service. A masterclass in customer satisfaction." }
+        ]
+    },
+    {
+        name: "Baton Rouge, LA (Highland Rd)",
+        lat: 30.4033, lng: -91.1550,
+        reviews: [
+            { reviewer: "Jijo Christopher", country: "US", rating: 5, text: "Order was ready on time. The lady at the counter was extremely pleasant. The store was very clean, and the entire crew was amazing." },
+            { reviewer: "James Proctor", country: "US", rating: 5, text: "Been going since it opened in Baton Rouge. Now in Texas, must eat it once a month. Always pretty solid." }
+        ]
+    },
+    {
+        name: "Phoenix/Mesa, AZ (E Baseline)",
+        lat: 33.3793, lng: -111.7899,
+        reviews: [
+            { reviewer: "Cassey Hiatt", country: "US", rating: 5, text: "This store is kinda 'quirky' \u2014 reminds me of the south! Drive thru only takes like 8 seconds!" }
+        ]
+    },
+    {
+        name: "Laveen, AZ",
+        lat: 33.3614, lng: -112.1665,
+        reviews: [
+            { reviewer: "Dana Dime", country: "US", rating: 5, text: "I want to show appreciation and respect to the employee who assisted me at the drive thru window." }
+        ]
+    },
+    {
+        name: "Littleton, CO (S Wadsworth)",
+        lat: 39.6133, lng: -105.0811,
+        reviews: [
+            { reviewer: "r s", country: "US", rating: 1, text: "The customer service is HORRIBLE! The food is ok at best but also horrible!" }
+        ]
+    },
+    {
+        name: "Findlay, OH",
+        lat: 41.0442, lng: -83.6499,
+        reviews: [
+            { reviewer: "Ruth Howard-Wilch", country: "US", rating: 2, text: "Once again my order was messed up. Fries weren't hot, soggy and cold. Chicken was cold. Kids meal had one chicken tender, no fries or drink." }
+        ]
+    },
+    {
+        name: "Woodbury, MN",
+        lat: 44.9239, lng: -92.9594,
+        reviews: [
+            { reviewer: "Mister", country: "US", rating: 1, text: "Usually not good. Chicken barely coated \u2014 almost bare chicken. Fries never hot. Almost frozen bread." }
+        ]
+    },
+    {
+        name: "Meridian, ID",
+        lat: 43.6121, lng: -116.3915,
+        reviews: [
+            { reviewer: "Vicky Roberts", country: "US", rating: 1, text: "First visit became our last. Drove an hour home to find two missing meals. Manager refused to look up the order." }
+        ]
+    },
+    {
+        name: "Altamonte Springs, FL",
+        lat: 28.6611, lng: -81.3656,
+        reviews: [
+            { reviewer: "Kathie Johnson Schaffler", country: "US", rating: 1, text: "Chicken was good but greasy, french fries soggy, toast soggy. Paying for extra sauce is ridiculous. Music was SO LOUD." }
+        ]
+    },
+    {
+        name: "Union Station, Washington, DC",
+        lat: 38.8972, lng: -77.0065,
+        reviews: [
+            { reviewer: "Linda", country: "US", rating: 1, text: "Food Was Luke Warm and salty." }
+        ]
+    },
+    {
+        name: "Compton, CA",
+        lat: 33.8958, lng: -118.2201,
+        reviews: [
+            { reviewer: "Ferndogg", country: "US", rating: 2, text: "Bag was just tied up but no sticker to close bag, drink does not have tape on lid or even being in a bag." }
+        ]
+    },
+    {
+        name: "Downey, CA",
+        lat: 33.9401, lng: -118.1332,
+        reviews: [
+            { reviewer: "Eric Boyer", country: "US", rating: 2, text: "Used to be good. Last two times the fries undercooked, chicken strips are small. Just not worth the money anymore." }
+        ]
+    },
+    {
+        name: "Bridgeton, MO (St. Charles Rock Rd)",
+        lat: 38.7700, lng: -90.4115,
+        reviews: [
+            { reviewer: "Carolyn G. Hunter Drake", country: "US", rating: 2, text: "Fries are old and chicken taste like cooked in old grease. I drive to Des Peres and the Cane's is crispy. Can not use the word 'consistency.'" }
+        ]
+    },
+    {
+        name: "Des Peres, MO",
+        lat: 38.6009, lng: -90.4333,
+        reviews: [
+            { reviewer: "Carolyn G. Hunter Drake", country: "US", rating: 4, text: "The Des Peres Cane's is crispy \u2014 much better than the Bridgeton location." }
+        ]
+    },
+    {
+        name: "Logan, UT",
+        lat: 41.7370, lng: -111.8338,
+        reviews: [
+            { reviewer: "Woodrow VanCott", country: "US", rating: 2, text: "Family of 9 \u2014 UNANIMOUS that Raising Canes is not worth the money. EVERYTHING was like it came out of a FROZEN CARDBOARD BOX." }
+        ]
+    },
+    {
+        name: "Ohio (General)",
+        lat: 40.4173, lng: -82.9071,
+        reviews: [
+            { reviewer: "Mr. Z", country: "US", rating: 4, text: "Tried Cane's in Ohio for the first time, impressed! Chicken was incredibly juicy and tender. Recommend the 20 Tender Combo." }
+        ]
+    },
+    {
+        name: "University City, MO",
+        lat: 38.6590, lng: -90.3099,
+        reviews: [
+            { reviewer: "Gene DeVore", country: "US", rating: 1, text: "Ordered Honey Mustard, delivered Cane's Sauce. When I pointed this out the person got very belligerent." }
+        ]
+    },
+    {
+        name: "Al-Dammam, Saudi Arabia",
+        lat: 26.4207, lng: 50.0888,
+        reviews: [
+            { reviewer: "Hussain Alwosibai", country: "SA", rating: 5, text: "I love raising canes! Please open in al-Asha in Al-Hofof. If you open near me you will not regret it." }
+        ]
+    },
+    {
+        name: "Saudi Arabia (General)",
+        lat: 24.7136, lng: 46.6753,
+        reviews: [
+            { reviewer: "Sampaguita Dela Torre", country: "SA", rating: 5, text: "Food is delicious and affordable." },
+            { reviewer: "Lady Castillo", country: "SA", rating: 5, text: "Chicken fingers are very juicy and tasty." }
+        ]
+    },
+    {
+        name: "Bahrain",
+        lat: 26.0667, lng: 50.5577,
+        reviews: [
+            { reviewer: "IT Support", country: "BH", rating: 5, text: "So good and delicious. The staff name: Maya." }
+        ]
+    },
+    {
+        name: "Clearwater, FL (Gulf to Bay Blvd)",
+        lat: 27.9659, lng: -82.8001,
+        reviews: [
+            { reviewer: "Karen M", country: "US", rating: 5, text: "The food was delicious. Texas toast amazing, fresh. Chicken was hot, moist. Fries were awesome. This one is a winner!" },
+            { reviewer: "Kenneth Tackett", country: "US", rating: 1, text: "Wrong order, soda watered down, fries terrible." }
+        ]
+    },
+    {
+        name: "Roanoke, VA",
+        lat: 37.2710, lng: -79.9414,
+        reviews: [
+            { reviewer: "Riley Glavas", country: "US", rating: 5, text: "Travelled from Roanoke to try it. Phenomenal experience. Best food I've ever eaten." }
+        ]
+    },
+    {
+        name: "Amarillo, TX (Georgia St)",
+        lat: 35.2220, lng: -101.8313,
+        reviews: [
+            { reviewer: "Texas girl", country: "US", rating: 5, text: "Good comfort food. The manager was very high energy. Great crinkle cut fries." }
+        ]
+    },
+    {
+        name: "Midlothian, VA",
+        lat: 37.5071, lng: -77.6528,
+        reviews: [
+            { reviewer: "Bonnie B.", country: "US", rating: 1, text: "Most tasteless chicken I have ever eaten. Strips really small. No flavor. Fries terrible. Huge waste of money." }
+        ]
+    },
+    {
+        name: "Boynton Beach, FL",
+        lat: 26.5254, lng: -80.0661,
+        reviews: [
+            { reviewer: "Tracie Anderer", country: "US", rating: 1, text: "Waited 25 min. They never put our order in. Lady just stood there. Left without food after 30 min." }
+        ]
+    },
+    {
+        name: "Port Allen, LA",
+        lat: 30.4524, lng: -91.2101,
+        reviews: [
+            { reviewer: "Steven", country: "US", rating: 1, text: "Dr. Pepper tasted like chemicals. Fries ice cold. Chicken like rubber. Had to throw everything away." }
+        ]
+    },
+    {
+        name: "Houston, TX (Main & Buffalo Speedway)",
+        lat: 29.7364, lng: -95.4183,
+        reviews: [
+            { reviewer: "Stacy Randle", country: "US", rating: 1, text: "Found a 4 inch piece of curly hair inside the plate. Please make sure everyone's hair is covered." }
+        ]
+    },
+    {
+        name: "Houston, TX (Tomball Pkwy / Hwy 249)",
+        lat: 29.9322, lng: -95.5377,
+        reviews: [
+            { reviewer: "Elizabeth Aguilar", country: "US", rating: 1, text: "Workers at the drive thru window were rude as hell. Fries were cold!" }
+        ]
+    },
+    {
+        name: "Waldorf, MD",
+        lat: 38.6246, lng: -76.8991,
+        reviews: [
+            { reviewer: "Disappointed Customer", country: "US", rating: 1, text: "2 hour wait at grand opening. Fries unsalted and soggy. Chicken not seasoned. Meals were trashed!" }
+        ]
+    },
+    {
+        name: "Tulsa, OK (Tulsa Hills)",
+        lat: 36.1044, lng: -96.0264,
+        reviews: [
+            { reviewer: "Crissy", country: "US", rating: 1, text: "Box combos had 3 not 4 tiny pinky sized strips. Cost almost $40. Meal was cold, semi-frozen." }
+        ]
+    },
+    {
+        name: "Killeen, TX",
+        lat: 31.1171, lng: -97.7278,
+        reviews: [
+            { reviewer: "Erikah Petro", country: "US", rating: 1, text: "Ordered $80 of food and got food poisoning. On toilet for days. Company did not refund." },
+            { reviewer: "Annie Spry", country: "US", rating: 2, text: "3rd issue. Forgot fries, made me walk inside for Apple Pay, lemonade was just water." }
+        ]
+    },
+    {
+        name: "Hammond, LA (SW Railroad)",
+        lat: 30.5044, lng: -90.4612,
+        reviews: [
+            { reviewer: "dee .aych", country: "US", rating: 1, text: "Food tonight was horrible. Fries warm and limp. $23 for 2 meals is horrible." }
+        ]
+    },
+    {
+        name: "Harvey, LA (LaPalco Blvd)",
+        lat: 29.8905, lng: -90.0773,
+        reviews: [
+            { reviewer: "tina sasso", country: "US", rating: 1, text: "Fries are half cooked, customer service sucks! My last visit. Hello Chick-Fil-A." }
+        ]
+    },
+    {
+        name: "New Orleans, LA (S Carrollton)",
+        lat: 29.9548, lng: -90.1287,
+        reviews: [
+            { reviewer: "mona", country: "US", rating: 1, text: "Manager getting hair braided on the clock. Drive thru line long. No tea or lemonade made." }
+        ]
+    },
+    {
+        name: "Columbus, OH (Polaris)",
+        lat: 40.1480, lng: -82.9818,
+        reviews: [
+            { reviewer: "Sue", country: "US", rating: 1, text: "Chicken was Luke warm and mostly breading. Fries cold and ALL tiny pieces." }
+        ]
+    },
+    {
+        name: "Crystal Lake, IL",
+        lat: 42.2411, lng: -88.3162,
+        reviews: [
+            { reviewer: "W.W. B.B.", country: "US", rating: 1, text: "Menu extremely limited. Absolutely tasteless. No spices. Go to KFC or Culver's instead." }
+        ]
+    },
+    {
+        name: "Mishawaka, IN",
+        lat: 41.6620, lng: -86.1586,
+        reviews: [
+            { reviewer: "Charles", country: "US", rating: 1, text: "Bit into something that broke my front tooth. Filed complaint — called a liar by insurance." }
+        ]
+    },
+    {
+        name: "Alexandria, LA",
+        lat: 31.3113, lng: -92.4451,
+        reviews: [
+            { reviewer: "Cheryl", country: "US", rating: 2, text: "Chicken pieces very small. Fries not good. Bread cooked one side only. Going back to Popeyes!" }
+        ]
+    },
+    {
+        name: "Kissimmee, FL (Rolling Oaks)",
+        lat: 28.2920, lng: -81.4076,
+        reviews: [
+            { reviewer: "Ryuko Nariko", country: "US", rating: 1, text: "Micromanaging is what you can expect. Corporate reports any reviews that criticize their company." }
+        ]
+    }
+];
+
+function getAvgRating(reviews) {
+    return reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+}
+
+function getSentimentColor(avg) {
+    if (avg >= 3.5) return '#00e676';
+    if (avg >= 2.5) return '#ffd740';
+    return '#ff4060';
+}
+
+function getSentimentLabel(avg) {
+    if (avg >= 3.5) return 'Positive';
+    if (avg >= 2.5) return 'Mixed';
+    return 'Negative';
+}
+
+function starsHtml(rating) {
+    let s = '';
+    for (let i = 1; i <= 5; i++) {
+        s += i <= rating
+            ? '<span style="color:#ffd740;">\u2605</span>'
+            : '<span style="color:rgba(255,255,255,0.12);">\u2605</span>';
+    }
+    return s;
+}
+
+const map = L.map('review-map', {
+    center: [35, -95],
+    zoom: 4,
+    zoomControl: true,
+    scrollWheelZoom: true
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OSM</a> \u00a9 <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(map);
+
+locationData.forEach(loc => {
+    const avg = getAvgRating(loc.reviews);
+    const color = getSentimentColor(avg);
+    const label = getSentimentLabel(avg);
+    const count = loc.reviews.length;
+    const radius = Math.min(6 + count * 3, 20);
+
+    const marker = L.circleMarker([loc.lat, loc.lng], {
+        radius: radius,
+        fillColor: color,
+        color: color,
+        weight: 1,
+        opacity: 0.9,
+        fillOpacity: 0.55
+    }).addTo(map);
+
+    let reviewsHtml = loc.reviews.map(r =>
+        `<div class="popup-review">${starsHtml(r.rating)} &ldquo;${r.text}&rdquo;<div class="popup-reviewer">\u2014 ${r.reviewer} (${r.country})</div></div>`
+    ).join('');
+
+    marker.bindPopup(
+        `<div class="popup-location">${loc.name}</div>` +
+        `<div class="popup-score" style="color:${color};">${avg.toFixed(1)} / 5 <span style="font-size:0.65rem;color:#888898;font-weight:400;">${label} \u00b7 ${count} review${count > 1 ? 's' : ''}</span></div>` +
+        reviewsHtml,
+        { maxWidth: 340, maxHeight: 300 }
+    );
+});
+
+// Theme toggle
+const themeSwitch = document.getElementById('themeSwitch');
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+    themeSwitch.checked = true;
+}
+themeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('light-mode', themeSwitch.checked);
+    localStorage.setItem('theme', themeSwitch.checked ? 'light' : 'dark');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1056 @@
+{
+  "report": {
+    "title": "Raising Cane's — Reviews, Metrics & Sentiment Report",
+    "compiled_date": "2026-04-09",
+    "sources": ["Trustpilot (93 of 161 reviews analyzed, pages 1-8)", "Wikipedia", "Forbes", "Business Insider", "Nation's Restaurant News", "QSR Magazine", "raisingcanes.com"]
+  },
+  "overview": {
+    "category": "Fast Food / Quick Service Restaurant (QSR)",
+    "founded": "August 28, 1996",
+    "founded_location": "Baton Rouge, Louisiana",
+    "founder": "Todd Graves",
+    "ownership": "Private (sole owner: Todd Graves)",
+    "concept": "ONE LOVE — exclusively chicken fingers",
+    "total_locations": "800+",
+    "locations_us": 800,
+    "locations_international": 15,
+    "international_markets": ["Saudi Arabia", "Bahrain", "United Arab Emirates"],
+    "revenue_2023_usd_est": 3700000000,
+    "employees": 50000,
+    "valuation_2024_usd": 9500000000,
+    "headquarters": "5660 Centennial Center Blvd, Las Vegas, NV 89149"
+  },
+  "ratings": {
+    "trustpilot": {
+      "score": 2.1,
+      "max_score": 5,
+      "total_reviews": 161,
+      "rating_label": "Poor",
+      "breakdown": {
+        "5_star_pct": 22,
+        "4_star_pct": 3,
+        "3_star_pct": 5,
+        "2_star_pct": 16,
+        "1_star_pct": 54
+      },
+      "top_mention_categories": [
+        "Order",
+        "Location",
+        "Customer Service",
+        "Quality",
+        "Mistake",
+        "Staff",
+        "Product",
+        "Service"
+      ]
+    },
+    "trustpilot_peer_comparison": {
+      "raising_canes": 2.1,
+      "wingstop": 2.8,
+      "chick_fil_a": 2.7,
+      "popeyes": 2.5,
+      "kfc": 2.5,
+      "taco_bell": 2.3,
+      "mcdonalds": 1.6
+    }
+  },
+  "reviews": {
+    "positive": [
+      {
+        "reviewer": "Daniel Girtley",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-01-18",
+        "location_mentioned": "1120 E Flamingo Rd, Las Vegas, NV",
+        "store_location": "Las Vegas, NV, US",
+        "store_address": "1120 E Flamingo Rd, Las Vegas, NV",
+        "text": "Today marked an awe-inspiring return to Raising Cane's at 1120 E Flamingo Rd in Las Vegas, NV, and what unfolded transcends mere satisfaction. While the entire team deserves commendation, a special spotlight on Louis and Jasmine, the maestros of exceptional service. Because of them, the Restaurant Manager Jesus and the entire team, your visit will be more than a meal; it will be a masterclass in customer satisfaction."
+      },
+      {
+        "reviewer": "Jijo Christopher",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-12-19",
+        "location_mentioned": "3313 Highland Road, Baton Rouge, LA 70802",
+        "store_location": "Baton Rouge, LA, US (Highland Rd)",
+        "store_address": "3313 Highland Road, Baton Rouge, LA 70802",
+        "text": "I ordered Canes chicken fingers (3313 Highland Road, Baton Rouge, LA 70802) around 1:20 today and picked them up. My order was ready on time. The lady at the counter was extremely pleasant and even asked if I had forgotten my drink. The store was very clean, and the entire crew was amazing. I would definitely recommend this location."
+      },
+      {
+        "reviewer": "James Proctor",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-11-29",
+        "location_mentioned": "Baton Rouge / Texas",
+        "store_location": "Baton Rouge, LA / Texas, US",
+        "store_address": null,
+        "text": "The only thing I can guess from the reviews is that people only give reviews when they have a bad experience. 'Cus I've been going to Raising Cane's since it opened in Baton Rouge, now I'm in Texas, and must eat it once a month. It's always pretty solid."
+      },
+      {
+        "reviewer": "Cassey Hiatt",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-04-09",
+        "location_mentioned": "2455 E Baseline",
+        "store_location": "Phoenix/Mesa, AZ, US",
+        "store_address": "2455 E Baseline Rd",
+        "text": "I go to 2455 E baseline and I like this store it's kinda 'quirky' reminds me of the south! Everyone should try this location! Drive thru only takes like 8 seconds!"
+      },
+      {
+        "reviewer": "Latif",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-08-29",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The chicken just delicious and the fry's bread service top tier."
+      },
+      {
+        "reviewer": "Jason Jordan",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-12-15",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I love the chicken and the sauce."
+      },
+      {
+        "reviewer": "whypeoplewhyy",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-10-26",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Two years later and this restaurant continues to prove how amazing it is! Excellent tasty tenders, fries, toast and lemonade! The customer service is spot on and it is always an unforgettable experience. The cane sauce is addicting."
+      },
+      {
+        "reviewer": "Devin reviews",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-10-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Canes is the most yummy thing on earth and their customer service is amazing I love Canes 10/10 definitely would recommend."
+      },
+      {
+        "reviewer": "Chase F",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-01-09",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Don't understand the 3 star reviews this place is outstanding! Made to order best chicken out there."
+      },
+      {
+        "reviewer": "Sampaguita Dela Torre",
+        "country": "SA",
+        "rating": 5,
+        "date": "2024-11-14",
+        "location_mentioned": "Saudi Arabia",
+        "store_location": "Saudi Arabia",
+        "store_address": null,
+        "text": "Food is delicious and affordable."
+      },
+      {
+        "reviewer": "Lady Castillo",
+        "country": "SA",
+        "rating": 5,
+        "date": "2024-11-14",
+        "location_mentioned": "Saudi Arabia",
+        "store_location": "Saudi Arabia",
+        "store_address": null,
+        "text": "Chicken fingers are very juicy and tasty."
+      },
+      {
+        "reviewer": "Dana Dime",
+        "country": "US",
+        "rating": 5,
+        "date": "2025-01-28",
+        "location_mentioned": "Laveen",
+        "store_location": "Laveen, AZ, US",
+        "store_address": null,
+        "text": "I visited the Laveen location today and I just want to show appreciation and respect to the employee who assisted me at the drive thru window."
+      },
+      {
+        "reviewer": "IT Support",
+        "country": "BH",
+        "rating": 5,
+        "date": "2024-02-10",
+        "location_mentioned": "Bahrain",
+        "store_location": "Bahrain",
+        "store_address": null,
+        "text": "So good and delicious specially. The staff name: Maya."
+      },
+      {
+        "reviewer": "Tillie",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-06-22",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "My wife and myself and grandkids love Canes. Chicken is normally always fresh and love the smaller crinkle cut fries. My only complaint are what sauces are offered."
+      },
+      {
+        "reviewer": "Charles B",
+        "country": "US",
+        "rating": 5,
+        "date": "2024-01-20",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Best chicken around here. It is generally clean and good service. I like it."
+      },
+      {
+        "reviewer": "Hussain Alwosibai",
+        "country": "SA",
+        "rating": 5,
+        "date": "2026-03-02",
+        "location_mentioned": "Al-Dammam, Saudi Arabia",
+        "store_location": "Saudi Arabia (Al-Dammam)",
+        "store_address": null,
+        "text": "Hello I love raising canes I want to try it but it is in Al-Dammam in Saudi Arabia can you guys open in al-Asha in Al-Hofof please I beg you if you open near me you will not regret it."
+      },
+      {
+        "reviewer": "Mr. Z",
+        "country": "US",
+        "rating": 4,
+        "date": "2024-09-13",
+        "location_mentioned": "Ohio",
+        "store_location": "Ohio, US",
+        "store_address": null,
+        "text": "I recently tried Cane's in Ohio for the first time, and I was impressed! The chicken was incredibly juicy and tender, and while it's not the cheapest option, the price feels reasonable for the quality. I highly recommend the 20 Tender Combo."
+      },
+      {
+        "reviewer": "AunnaM",
+        "country": "US",
+        "rating": 3,
+        "date": "2025-08-05",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Very bright customer service, quick and efficient. Always satisfied with my food."
+      },
+      {
+        "reviewer": "Karen M",
+        "country": "US",
+        "rating": 5,
+        "date": "2023-02-04",
+        "location_mentioned": "Gulf to Bay Blvd, Clearwater, FL",
+        "store_location": "Clearwater, FL, US",
+        "store_address": "Gulf to Bay Blvd, Clearwater, FL",
+        "text": "Ate at the new Raising Canes on Gulf the Bay Blvd in Clearwater, FL. The food was so absolutely worth it! The chicken was piping hot, NOT GREASY! Tasty and flavorful with just enough Southern style homemade breading! The Cole slaw had a great taste! Krinkle fries were perfect! And I ate every bite of the delicious, buttery tasting Texas Toast! Food is made to order so always fresh!"
+      },
+      {
+        "reviewer": "CraigC",
+        "country": "US",
+        "rating": 5,
+        "date": "2023-06-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Amazing. The chicken, the sauce, the bread. Ignore the 1-star reviews. This place is it."
+      },
+      {
+        "reviewer": "Riley Glavas",
+        "country": "US",
+        "rating": 5,
+        "date": "2022-08-20",
+        "location_mentioned": "Roanoke",
+        "store_location": "Roanoke, VA, US",
+        "store_address": null,
+        "text": "Travelled from Roanoke to try it and dont regret my choices. Best food my taste buds have ever tasted. Scrumptious bread and sauce. Will be back!"
+      },
+      {
+        "reviewer": "Texas girl",
+        "country": "US",
+        "rating": 5,
+        "date": "2022-07-20",
+        "location_mentioned": "Georgia Street, Amarillo, Texas",
+        "store_location": "Amarillo, TX, US",
+        "store_address": "Georgia Street, Amarillo, TX",
+        "text": "I love Raising Canes. Good comfort food. The manager was high energy and friendly. He was very attentive to customers, calling them by name. Several staff members came by our table to check on us. The restaurant was clean, the staff was friendly and well trained! A delightful experience."
+      },
+      {
+        "reviewer": "Bethany Wormack",
+        "country": "US",
+        "rating": 5,
+        "date": "2022-12-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Dale made my whole experience. He sang happy birthday to my friend which was very kind of him."
+      },
+      {
+        "reviewer": "Ed B",
+        "country": "US",
+        "rating": 5,
+        "date": "2021-05-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Great value for what you pay — I always leave full with the 4-piece box combo. Ability to substitute in a toast in lieu of cole slaw makes it all the more appealing. And of course, the 5-star Cane's sauce."
+      },
+      {
+        "reviewer": "Markus Ritchie",
+        "country": "US",
+        "rating": 5,
+        "date": "2021-12-09",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "DANICAAAAAAA!!!! She slayed the button pushing magic that created the experience of my mouth exploding with that tasty southern flavor. Jewels killed it too."
+      },
+      {
+        "reviewer": "Amie",
+        "country": "US",
+        "rating": 4,
+        "date": "2021-06-21",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "A+ Quality. Yes, the strips vary in size but the taste is always there. Fresh and juicy every time I visit!"
+      },
+      {
+        "reviewer": "faisal alassi",
+        "country": "JO",
+        "rating": 5,
+        "date": "2023-03-24",
+        "location_mentioned": "Saudi Arabia",
+        "store_location": "Saudi Arabia",
+        "store_address": null,
+        "text": "Wow, the chicken was so good and incredible I LOVE IT. Food: 5/5, Atmosphere: 4/5, Quality: 4.5/5, Freshness: 3.8/5. Overall: Very good RECOMMENDED."
+      },
+      {
+        "reviewer": "Angry Autism Mom",
+        "country": "US",
+        "rating": 4,
+        "date": "2018-06-01",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I decided to try Raising Cane's. I was a little shocked at the price, but after my son and I ate the chicken strips with fries, I was amazed at how good their food is. We really enjoyed it. I recommend it."
+      },
+      {
+        "reviewer": "KarenP",
+        "country": "US",
+        "rating": 4,
+        "date": "2022-06-11",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Eh. Chicken strips were huge. But, meat was wet and soft. Too much tenderizing? Coating is what saved it. Crispy and not greasy at all. Fries were uneventful. Toast was under toasted."
+      }
+    ],
+    "negative": [
+      {
+        "reviewer": "Lisa Honaker Jeffries",
+        "country": "US",
+        "rating": 1,
+        "date": "2026-04-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Why does Raising Cane's use an obese child in their television commercials? That kid got obese from poor nutrition, such as eating fast food. I find it gross and shameful."
+      },
+      {
+        "reviewer": "Chanel Napier",
+        "country": "US",
+        "rating": 1,
+        "date": "2026-04-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "So I'm asking Raising Cane for food and they're calling me back yelling at me. They were very rude and very disrespectful so maybe don't recommend Raising Cane's cause they are terrible mean people."
+      },
+      {
+        "reviewer": "C Turner",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-02-27",
+        "location_mentioned": "Reno and MacArthur",
+        "store_location": null,
+        "store_address": null,
+        "text": "I have been going to the Canes at Reno and MacArthur for quite awhile, 96 visits on my canes card. Tonight I went and was very disappointed. I ordered a box combo and two extra chicken fingers. I asked for one more canes sauce since I ordered extra chicken and was told I would have to pay 42 cents for it."
+      },
+      {
+        "reviewer": "J Mct",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-02-09",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Outrageously overpriced for middle of the road food at best. Went once, that's more than enough."
+      },
+      {
+        "reviewer": "kay scholz",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-02-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "We ate in. The FF were way undercooked. They tasted almost raw. We had to go to the counter twice to get the meal correct. The Coke was out — brown water. The dining room empty tables were dirty. I will not be back."
+      },
+      {
+        "reviewer": "Jessica Howard",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-02-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Ordered 50 pieces of chicken along with fries and toast. Got no sauce with the chicken. Was told I had to order it separately. So I had to pay an additional $20 to get sauce. Totally ridiculous!"
+      },
+      {
+        "reviewer": "Rebecca Nolen",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-09-30",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Had Raising Cane's 3 finger take out. I wanted the 6 finger, but $18 for a meal for one from fast food is ridiculous. This isn't inflation. This is corporate greed."
+      },
+      {
+        "reviewer": "Jae La Salla",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Over $11 for four TINY little bland chicken fingers, coleslaw with ZERO flavor (unless you count mayonnaise as a flavor), and crinkle fries that look and taste like they were from the Dollar Tree? The Texas toast tasted like a bland piece of bread. The ONLY good part was the Coke Zero."
+      },
+      {
+        "reviewer": "Vicky Roberts",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-12-07",
+        "location_mentioned": "Meridian, Idaho",
+        "store_location": "Meridian, ID, US",
+        "store_address": null,
+        "text": "Meridian, Idaho Location!! Our first visit to Raising Cane's became our last. We drove an hour home to find two missing meals from our order. When we called, the manager refused to look up the order because it would 'take too long.'"
+      },
+      {
+        "reviewer": "Mister",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-12-02",
+        "location_mentioned": "Woodbury, Minnesota",
+        "store_location": "Woodbury, MN, US",
+        "store_address": null,
+        "text": "The store in Woodbury Minnesota is usually not good. Most of the time the chicken pieces are barely coated, usually only one side is coated, you almost get bare chicken that's deep fried. Fries are never hot. We have actually had almost frozen bread in our order."
+      },
+      {
+        "reviewer": "Alexander Puga",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-12-10",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "These fingers from Raising Canes are by far the worst chicken fingers that I've ever had in my life. The chicken has zero flavor."
+      },
+      {
+        "reviewer": "Just for apps",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-11-27",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Overrated. The chicken tasted very bland, the sauces had little to no flavor, and the prices are EGREGIOUS. Don't fall for the hype."
+      },
+      {
+        "reviewer": "Sessa Babyy",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-07-17",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "My daughter ordered 7 or 8 platters cus we have a large family. The food was bland, cold, small portions and had to add seasoning to even eat it. Very disappointed being the hype was so real."
+      },
+      {
+        "reviewer": "realBoomtown",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06-26",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Most overrated and overhyped chicken place in existence. Bad customer service, salty luke warm food. Pass."
+      },
+      {
+        "reviewer": "Tami Bracht",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06-19",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I stop at Raising Cane's all the time. It is usually delicious and fast. This time everything was cold, and the breading was falling off the chicken."
+      },
+      {
+        "reviewer": "Kathie Johnson Schaffler",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06-08",
+        "location_mentioned": "Altamonte Springs, Florida",
+        "store_location": "Altamonte Springs, FL, US",
+        "store_address": null,
+        "text": "Chicken was good but greasy, the french fries were like soggy or mush, the toast was soggy. Paying for extra sauce is ridiculous. The music was SO LOUD, the person taking orders could not even hear what was being said."
+      },
+      {
+        "reviewer": "r s",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-06-27",
+        "location_mentioned": "5060 S Wadsworth, Littleton, CO",
+        "store_location": "Littleton, CO, US",
+        "store_address": "5060 S Wadsworth Blvd, Littleton, CO",
+        "text": "The customer service is HORRIBLE! The food is ok at best but also horrible! I went to Raising Cane's on 5060 S Wadsworth in Littleton Colorado."
+      },
+      {
+        "reviewer": "Linda",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-10-22",
+        "location_mentioned": "Union Station, Washington, DC",
+        "store_location": "Washington, DC, US",
+        "store_address": "Union Station, Washington, DC",
+        "text": "Food Was Luke Warm and salty. The location was Union Station Washington, DC."
+      },
+      {
+        "reviewer": "Candee",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-12-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "I have been eating raising cane's for several years until recently I have been experiencing different locations undercooking the fries. I called customer relations and spoke with Allison who said she would block my number for reporting undercooked fries."
+      },
+      {
+        "reviewer": "Jade",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-03-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Had Raising Cane's for the first time. The chicken tenders were absolutely disgusting. They did not even look like real chicken. I literally spit out what I had in my mouth and threw my meal in the trash."
+      },
+      {
+        "reviewer": "Kathy Crow",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-11-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "After waiting in drive thru a long time to order (just us two cars) the chicken tasted like semi raw meat fried in old grease. I will not be back. Not to mention expensive."
+      },
+      {
+        "reviewer": "Gene DeVore",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-11-01",
+        "location_mentioned": "University City",
+        "store_location": "University City, MO, US",
+        "store_address": null,
+        "text": "Ordered Fries and Honey Mustard. The person delivered Cane's Sauce — which is not Honey Mustard. When I pointed this out the person got very belligerent."
+      },
+      {
+        "reviewer": "Jeffrey Baker",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-10-26",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The tenders were bland and had a flour taste to them. I tasted no seasoning whatsoever. The coleslaw was just the worst. The RC sauce was not good at all."
+      },
+      {
+        "reviewer": "Scotty Hardison",
+        "country": "US",
+        "rating": 1,
+        "date": "2024-09-06",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Mega price for tiny MICRO CHICKEN. Horrible deal. Serious ripoff."
+      },
+      {
+        "reviewer": "Diane Vessels",
+        "country": "US",
+        "rating": 2,
+        "date": "2026-02-06",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Took my son for his birthday, he hyped it up and sadly it was disappointing. The coleslaw was tart, the chicken was soggy. Spent 70 dollars for a family of 4 not worth the funds."
+      },
+      {
+        "reviewer": "MikeB",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-08-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Completely underwhelming chicken. Lacked basic seasoning. One word to describe would be bland. Lackluster fries. Poor excuse for 'texas toast' as well."
+      },
+      {
+        "reviewer": "Eric Boyer",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-10-24",
+        "location_mentioned": "Downey, CA",
+        "store_location": "Downey, CA, US",
+        "store_address": null,
+        "text": "Used to be good. Last two times the fries undercooked the chicken strips are small. Just not worth the money anymore."
+      },
+      {
+        "reviewer": "Carolyn G. Hunter Drake",
+        "country": "US",
+        "rating": 2,
+        "date": "2026-03-29",
+        "location_mentioned": "St. Charles Rock Rd, Bridgeton, MO / Des Peres, MO",
+        "store_location": "Bridgeton, MO / Des Peres, MO, US",
+        "store_address": null,
+        "text": "Every time I order from Cane's on St. Charles Rock Road in Bridgeton MO, the fries are old and the chicken taste like it is cooked in old grease. I drive to Des Peres and the Cane's is crispy. I can not use the word 'consistency.'"
+      },
+      {
+        "reviewer": "Porter May",
+        "country": "US",
+        "rating": 2,
+        "date": "2026-01-17",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "This is the slowest service I have ever experienced at a 'fast' food place. I have been waiting in the drive thru line for over half an hour."
+      },
+      {
+        "reviewer": "Woodrow VanCott",
+        "country": "US",
+        "rating": 2,
+        "date": "2023-12-31",
+        "location_mentioned": "Logan, UT",
+        "store_location": "Logan, UT, US",
+        "store_address": null,
+        "text": "We're a family of 9. UNANIMOUS review that Raising Canes is not worth the money unless you're looking for generic, tasteless fries, toast, and Costco quality chicken fingers. EVERYTHING was like it came out of a FROZEN CARDBOARD BOX."
+      },
+      {
+        "reviewer": "Ruth Howard-Wilch",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-05-01",
+        "location_mentioned": "Findlay, Ohio",
+        "store_location": "Findlay, OH, US",
+        "store_address": null,
+        "text": "I went to Raising Cane's in Findlay, Ohio once again my order was messed up. The fries weren't hot, they was soggy cold and needed seasonings. The chicken was cold and they gave one chicken tender as the kids meal, no fries or drink."
+      },
+      {
+        "reviewer": "M",
+        "country": "US",
+        "rating": 2,
+        "date": "2024-02-13",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Food was extremely salty — five times what should be normal. Fries were underdone. The atmosphere was chaotic. Sound levels were deafening with very loud music booming and employees shouting."
+      },
+      {
+        "reviewer": "Sherry Smith",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-05-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The chicken is good. Not so much on the customer relations side. No discount for religious organizations, no military discount. Management must not understand 'community relations.'"
+      },
+      {
+        "reviewer": "Ferndogg",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-06-27",
+        "location_mentioned": "Compton, CA",
+        "store_location": "Compton, CA, US",
+        "store_address": null,
+        "text": "Ordered Raising Canes in Compton CA for delivery, bag was just tied up but no sticker to close bag, also drink does not have tape on lid or even being in a bag."
+      },
+      {
+        "reviewer": "Mia Gail",
+        "country": "US",
+        "rating": 2,
+        "date": "2025-07-21",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Bought 4 meals. No straws, no napkins and no receipt!!! How do I know I wasn't over charged???"
+      },
+      {
+        "reviewer": "Bonnie B.",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-07-17",
+        "location_mentioned": "Midlothian, VA",
+        "store_location": "Midlothian, VA, US",
+        "store_address": null,
+        "text": "The most tasteless chicken I have ever eaten. The strips were really small. The chicken was tender but had absolutely no flavor, unless you dipped it in the only sauce they offer. The fries were terrible, no salt and limp. Super expensive. Huge waste of money."
+      },
+      {
+        "reviewer": "Tracie Anderer",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-07-12",
+        "location_mentioned": "Boynton Beach, FL",
+        "store_location": "Boynton Beach, FL, US",
+        "store_address": "Boynton Beach Blvd by BJ's",
+        "text": "My daughter and I waited in line for 25 minutes. Ordered our food, and when we got to the window they had never put our order in. When I asked what I should do, the lady just stood there and I said 'Well, I guess we'll go' and she said OK and we left without food after 30 minutes. We will be sticking with Chick-fil-A."
+      },
+      {
+        "reviewer": "Steven",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-07-03",
+        "location_mentioned": "Port Allen, LA",
+        "store_location": "Port Allen, LA, US",
+        "store_address": null,
+        "text": "The Dr. Pepper was light colored and taste like chemicals. The fries were ice cold. The chicken was like rubber. I had to throw everything away. A waste of over $25. Never again."
+      },
+      {
+        "reviewer": "E Ball",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-06-24",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The new smaller size of the chicken tenders is much much smaller than their initial offering. After several visits, the size has stayed consistently small — this is a corporate change. They have succumbed to shrinkflation and raised prices as well."
+      },
+      {
+        "reviewer": "Stacy Randle",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-06-08",
+        "location_mentioned": "Main and Buffalo Speedway, Houston",
+        "store_location": "Houston, TX, US",
+        "store_address": "Main and Buffalo Speedway",
+        "text": "After spending $17.03 for the Caniac 6pc chicken strips, I found a 4 inch piece of curly hair inside the plate. Please make sure everyone's hair is covered."
+      },
+      {
+        "reviewer": "Disappointed Customer",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-05-24",
+        "location_mentioned": "Waldorf",
+        "store_location": "Waldorf, MD, US",
+        "store_address": null,
+        "text": "After a 2 hour drive through wait at the grand opening, the quality of my meal was HORRIBLE! The fries were unsalted and soggy and the chicken was not seasoned! The meals were trashed! MY experience was HIGHLY disappointing! A waste of my money!!"
+      },
+      {
+        "reviewer": "Crissy",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-04-08",
+        "location_mentioned": "Tulsa Hills",
+        "store_location": "Tulsa, OK, US",
+        "store_address": "Tulsa Hills area",
+        "text": "The young man was so fast speaking that we couldn't understand him at all. What we ordered was not right. Box combos had 3 not 4 tiny pinky sized chicken strips each. The bread totaled more weight than the 3 pieces combined. Cost was almost $40. The meal was cold, seriously semi-frozen. This was my last visit."
+      },
+      {
+        "reviewer": "NanC",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-04-05",
+        "location_mentioned": "Baton Rouge, LA",
+        "store_location": "Baton Rouge, LA, US",
+        "store_address": null,
+        "text": "Todd Graves and Canes publicized that LSU Women's Basketball Team would be there. We arrived at 9:45 and waited outside. Fans were allowed inside at 11:15 and the team left at 11:30. This was not for the fans. This was strictly publicity for Todd Graves and Cane's. We will never again set foot in another Raising Canes."
+      },
+      {
+        "reviewer": "Erikah Petro",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-01-29",
+        "location_mentioned": "Killeen, TX",
+        "store_location": "Killeen, TX, US",
+        "store_address": null,
+        "text": "Ordered $80 worth of food and got food poisoning due to undercooked chicken. I was on the toilet for days holding a trash can puking. The company did not refund us or make it right or apologize. The Killeen location in TX and surrounding areas are unsanitary."
+      },
+      {
+        "reviewer": "dee .aych",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-01-23",
+        "location_mentioned": "SW Railroad, Hammond, LA",
+        "store_location": "Hammond, LA, US",
+        "store_address": "SW Railroad, Hammond, LA",
+        "text": "SWRailroad Hammond LA Raising canes food tonight was horrible. The fries were warm and limp not hot at all. $23 and some change for 2 meals is horrible. Every bite I have complained. Please do better."
+      },
+      {
+        "reviewer": "Destiny Loar",
+        "country": "US",
+        "rating": 1,
+        "date": "2023-01-02",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Had my wife go get raising canes because the guys at work was talking about it. Boy was I disappointed. The fries were not done and cold, the coleslaw smelled spoiled. $15.00 down the drain. Live and learn."
+      },
+      {
+        "reviewer": "tina sasso",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-11-30",
+        "location_mentioned": "LaPalco, Harvey, LA",
+        "store_location": "Harvey, LA, US",
+        "store_address": "LaPalco Blvd, Harvey, LA",
+        "text": "The Canes on LaPalco in Harvey LA is sad! The fries are half cooked, the customer service sucks! Not sure what happened but my last visit was today! Hello Chick-Fil-A."
+      },
+      {
+        "reviewer": "Elizabeth Aguilar",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-05-12",
+        "location_mentioned": "Hwy 249, Tomball Pkwy",
+        "store_location": "Houston, TX (Tomball Pkwy), US",
+        "store_address": "Hwy 249 Tomball Pkwy",
+        "text": "Workers at the drive thru window were rude as hell. Your nice and saying please and thank you and they just stare at you with no reply. My side of fries were cold!!!!"
+      },
+      {
+        "reviewer": "mona",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-08-17",
+        "location_mentioned": "South Carrollton, New Orleans, LA",
+        "store_location": "New Orleans, LA, US",
+        "store_address": "South Carrollton Ave, New Orleans, LA",
+        "text": "Last Saturday I saw the manager at the South Carrollton location in New Orleans, LA get her hair braided while they were on the clock, the line in the drive thru was long, there was no tea or lemonade made. The management team is not professional at all."
+      },
+      {
+        "reviewer": "Sue",
+        "country": "US",
+        "rating": 1,
+        "date": "2022-07-27",
+        "location_mentioned": "Polaris, Columbus, OH",
+        "store_location": "Columbus, OH, US",
+        "store_address": "Polaris, Columbus, OH",
+        "text": "Ordered 2 fingers, fries and drink. Chicken was Luke warm and mostly breading, fries were cold and ALL tiny pieces. I come to Cane's frequently and have never had a bad meal until today."
+      },
+      {
+        "reviewer": "W.W. B.B.",
+        "country": "US",
+        "rating": 1,
+        "date": "2021-11-18",
+        "location_mentioned": "Crystal Lake, IL",
+        "store_location": "Crystal Lake, IL, US",
+        "store_address": null,
+        "text": "This review is for the Crystal Lake, IL restaurant. Menu is extremely limited to chicken fingers only. Absolutely tasteless — no spices used. Fries were wobbly, not cooked to order. Coleslaw had no taste. Texas bread tasted like bread dough. Go to KFC, Chik-Fil-A, or Culver's if you want your food to taste good."
+      },
+      {
+        "reviewer": "Charles",
+        "country": "US",
+        "rating": 1,
+        "date": "2021-05-18",
+        "location_mentioned": "Mishawaka, IN",
+        "store_location": "Mishawaka, IN, US",
+        "store_address": null,
+        "text": "When I took my second bite out of the chicken I bit into something that shattered and broke my front tooth clear down to the bone. I filed a complaint and they turned it over to their insurance company only to be called a liar."
+      },
+      {
+        "reviewer": "Cheryl",
+        "country": "US",
+        "rating": 2,
+        "date": "2021-08-19",
+        "location_mentioned": "Alexandria, LA",
+        "store_location": "Alexandria, LA, US",
+        "store_address": null,
+        "text": "Just tried Raising Canes for the first time. Chicken pieces were very small. Fries not good. Expected the bread to be good but it was cooked on one side with absolutely no taste. This was an expensive meal for what I received. Going back to Popeyes!"
+      },
+      {
+        "reviewer": "Donna Gibson",
+        "country": "US",
+        "rating": 1,
+        "date": "2021-12-28",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "How much smaller can the chicken get. We have been ordering for years but I don't think anymore. There are other chicken places that there is actually some chicken there to eat. Chick-fil-A here we come."
+      },
+      {
+        "reviewer": "Ronald Bell",
+        "country": "US",
+        "rating": 2,
+        "date": "2021-12-11",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "How many times do I order an extra Cane sauce, get charged for it, and end up without? A lot. And every time I wonder why I go back."
+      },
+      {
+        "reviewer": "Annie Spry",
+        "country": "US",
+        "rating": 2,
+        "date": "2021-01-13",
+        "location_mentioned": "S. Ft. Hood St",
+        "store_location": "Killeen, TX, US",
+        "store_address": "S. Ft. Hood St",
+        "text": "For the 3rd time I have encountered an issue. First time they forgot my fries, 2nd time they made me walk inside to pay because I was using Apple Pay, 3rd time I ordered lemonade and received clear water that tasted like lemon water with a dash of sugar."
+      },
+      {
+        "reviewer": "L P",
+        "country": "US",
+        "rating": 2,
+        "date": "2026-02-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "First, they are closed on MLK day, which sucked. But now, on Super Bowl Sunday?? How lame is that!! There is nothing more American than chicken on SBS! And they are closed... AGAIN??"
+      },
+      {
+        "reviewer": "ADDIE PEREZ",
+        "country": "US",
+        "rating": 1,
+        "date": "2026-01-28",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "When I got to the window the guy was very rude. He gave us a drink which was wrong. The 4 pieces of bread was not in the bag. The plate looked horrible."
+      },
+      {
+        "reviewer": "Mr Alan Davidson",
+        "country": "GB",
+        "rating": 1,
+        "date": "2025-05-23",
+        "location_mentioned": "Philadelphia / Medford",
+        "store_location": "Philadelphia area, US",
+        "store_address": null,
+        "text": "Just arrived in Philadelphia after a very long day travelling from Scotland and we stopped at Raising Cane's on the way to Medford. Very disappointing experience."
+      },
+      {
+        "reviewer": "Kari Retz",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-04-07",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The coleslaw was missing with the dinner. 3 of us had sandwiches. 1 was missing the lettuce. The lettuce on the other sandwiches was almost slimy. The quality has gone way down."
+      },
+      {
+        "reviewer": "Ryuko Nariko",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-04-27",
+        "location_mentioned": "Rolling Oaks, Kissimmee, FL",
+        "store_location": "Kissimmee, FL, US",
+        "store_address": "Rolling Oaks, Kissimmee, FL",
+        "text": "Micromanaging is what you can expect from this company, and the corporate office report any reviews that criticize their company."
+      },
+      {
+        "reviewer": "Jennifer Maynor",
+        "country": "US",
+        "rating": 1,
+        "date": "2025-07-22",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Food was soggy and had no flavor."
+      },
+      {
+        "reviewer": "Joyce",
+        "country": "US",
+        "rating": 3,
+        "date": "2025-05-10",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "The chicken is the best. Change the fries and the slaw. Yuk. Slaw is better than the fries. Fries are frozen 50's fries."
+      },
+      {
+        "reviewer": "Stacy",
+        "country": "US",
+        "rating": 3,
+        "date": "2021-08-08",
+        "location_mentioned": null,
+        "store_location": null,
+        "store_address": null,
+        "text": "Their special sauce is the only thing they're probably popular for. The chicken is just dry paper without the sauce itself."
+      }
+    ]
+  },
+  "sentiment_summary": {
+    "dominant_negatives": [
+      {"theme": "Bland / Unseasoned Food", "description": "#1 complaint. Chicken described as 'bland,' 'flavorless,' requiring sauce for any taste. Compared to frozen store-bought."},
+      {"theme": "Price / Value", "description": "Prices too high for fast food given portion sizes. $18 for a meal for one, $70 for family of 4. Extra sauce charges a major pain point."},
+      {"theme": "Declining Portions / Quality", "description": "Repeat customers note chicken fingers getting smaller, fries undercooked or soggy, declining consistency across locations."},
+      {"theme": "Order Accuracy / Missing Items", "description": "Frequent missing sauce, missing sides, wrong drinks, incomplete orders."},
+      {"theme": "Limited Menu", "description": "ONE LOVE concept is polarizing. No alternatives for non-chicken-finger customers. Limited sauce options."},
+      {"theme": "Sauce Upcharge Policy", "description": "Charging for extra Cane's Sauce (one free per 4 fingers) viewed as stingy and insulting."}
+    ],
+    "dominant_positives": [
+      {"theme": "Chicken Quality (When Good)", "description": "Fans describe chicken as 'juicy,' 'crispy,' 'delicious,' and the best chicken fingers available."},
+      {"theme": "Cane's Sauce", "description": "Proprietary dipping sauce has cult following, described as 'addicting.'"},
+      {"theme": "Fast Service (Select Locations)", "description": "Several reviewers praise drive-thru speed and efficiency."},
+      {"theme": "Friendly Staff (Select Locations)", "description": "Specific employees praised by name for exceptional service."},
+      {"theme": "Loyal Fan Base", "description": "Long-time Louisiana customers especially loyal, noting brand reliable for years."},
+      {"theme": "Texas Toast", "description": "Several reviewers note the toast as a meal highlight."}
+    ]
+  },
+  "overall_scores": {
+    "food_quality_taste": 5.5,
+    "food_quality_consistency": 4.0,
+    "value_for_money": 3.5,
+    "service_speed": 5.5,
+    "staff_friendliness": 5.0,
+    "cleanliness": 5.5,
+    "menu_variety": 2.0,
+    "brand_reputation": 6.5,
+    "weighted_overall": 4.3
+  },
+  "controversies": [
+    {
+      "event": "Todd Graves Billionaire Status",
+      "year": "2024",
+      "impact": "Forbes profiled sole owner as one of America's richest; prompted accusations of 'corporate greed' from customers facing price hikes."
+    },
+    {
+      "event": "Sauce Upcharge Policy",
+      "year": "2023–2026",
+      "impact": "Ongoing customer backlash over charging $0.42+ for extra Cane's Sauce."
+    },
+    {
+      "event": "Rapid Expansion / Quality Decline",
+      "year": "2022–2026",
+      "impact": "As locations expanded from ~600 to 800+, reviewers note inconsistency and declining quality at newer locations."
+    },
+    {
+      "event": "Environmental Concerns",
+      "year": "2024",
+      "impact": "Criticized for styrofoam containers, plastic bags, and plastic silverware."
+    },
+    {
+      "event": "Employee Complaints",
+      "year": "2023–2025",
+      "impact": "Anonymous reviews allege micromanagement, overextending crew members, and corporate suppressing negative reviews."
+    }
+  ],
+  "media_sentiment": [
+    {"source": "Forbes", "quote": "Named Todd Graves among America's richest self-made entrepreneurs; valued at $9.5B (2024)."},
+    {"source": "Business Insider", "quote": "Raising Cane's quietly became one of America's fastest-growing restaurant chains."},
+    {"source": "Nation's Restaurant News", "quote": "Ranked among top 10 fastest-growing restaurant chains multiple years running."},
+    {"source": "USA Today", "quote": "Featured in 'Best Fast Food Chicken' rankings for simplicity and quality."},
+    {"source": "QSR Magazine", "quote": "Recognized for strong unit economics and customer loyalty despite limited menu."}
+  ]
+}

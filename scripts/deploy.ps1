@@ -13,8 +13,14 @@ if ($env:FTP_PASS) {
     $credential = New-Object System.Net.NetworkCredential($ftpUser, $securePass)
 }
 
+$websiteDir = Join-Path (Split-Path $PSScriptRoot) "projects\website"
+
 $localFiles = @(
-    "$PSScriptRoot\index.html"
+    "$websiteDir\index.html",
+    "$websiteDir\shake-shack-report.html",
+    "$websiteDir\raising-canes-report.html",
+    "$websiteDir\resume.html",
+    "$websiteDir\Jody_LeBlanc_Resume.pdf"
 )
 
 foreach ($localFile in $localFiles) {
