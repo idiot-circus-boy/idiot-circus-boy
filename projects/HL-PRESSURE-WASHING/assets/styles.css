@@ -149,26 +149,39 @@ select:focus-visible {
 }
 
 .icon-link {
+  position: relative;
+  width: clamp(92px, 14vw, 148px);
+  height: clamp(92px, 14vw, 148px);
   display: grid;
-  justify-items: center;
-  gap: 10px;
+  place-items: center;
   color: var(--white);
   text-decoration: none;
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: clamp(0.86rem, 1.3vw, 1.08rem);
 }
 
 .icon-link svg {
-  width: clamp(74px, 12vw, 128px);
-  height: clamp(74px, 12vw, 128px);
-  color: var(--white);
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.22);
   fill: currentColor;
   transition: transform 180ms ease, color 180ms ease;
 }
 
+.icon-link span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(6, 38, 111, 0.55);
+  pointer-events: none;
+}
+
 .icon-link:hover svg,
 .icon-link:focus-visible svg {
-  color: var(--aqua);
+  color: rgba(143, 242, 234, 0.38);
   transform: rotate(24deg) scale(1.04);
 }
 
