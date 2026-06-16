@@ -55,7 +55,7 @@ document.querySelectorAll(".icon-link").forEach((link) => {
       }
 
       window.location.href = destination.href;
-    }, 1300);
+    }, 1250);
   });
 });
 

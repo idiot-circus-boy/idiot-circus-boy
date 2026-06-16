@@ -126,10 +126,22 @@ select:focus-visible {
   display: grid;
   place-items: center;
   pointer-events: none;
-  background:
-    radial-gradient(circle at var(--start-x) var(--start-y), var(--blue-deep) 0 0, rgba(6, 38, 111, 0) 0);
-  animation: transition-wash 1300ms cubic-bezier(0.16, 0.82, 0.25, 1) forwards;
-  will-change: background, opacity;
+  overflow: hidden;
+}
+
+.page-transition::before {
+  content: "";
+  position: fixed;
+  left: var(--start-x);
+  top: var(--start-y);
+  width: 100vmax;
+  height: 100vmax;
+  border-radius: 50%;
+  background: var(--blue-deep);
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center;
+  animation: transition-cover 1250ms cubic-bezier(0.16, 0.82, 0.25, 1) forwards;
+  will-change: transform;
 }
 
 .page-transition-mark {
@@ -143,7 +155,7 @@ select:focus-visible {
   color: rgba(255, 255, 255, 0.22);
   transform: translate(-50%, -50%);
   transform-origin: center;
-  animation: transition-mark 1300ms cubic-bezier(0.16, 0.82, 0.25, 1) forwards;
+  animation: transition-mark 1250ms cubic-bezier(0.16, 0.82, 0.25, 1) forwards;
   will-change: transform, opacity;
 }
 
@@ -153,15 +165,9 @@ select:focus-visible {
   fill: currentColor;
 }
 
-@keyframes transition-wash {
-  0% {
-    background:
-      radial-gradient(circle at var(--start-x) var(--start-y), var(--blue-deep) 0 0, rgba(6, 38, 111, 0) 0);
-  }
-
+@keyframes transition-cover {
   100% {
-    background:
-      radial-gradient(circle at var(--start-x) var(--start-y), var(--blue-deep) 0 160vmax, rgba(6, 38, 111, 0) 160vmax);
+    transform: translate(-50%, -50%) scale(3);
   }
 }
 
@@ -173,12 +179,12 @@ select:focus-visible {
 
   62% {
     opacity: 0.92;
-    transform: translate(-50%, -50%) rotate(300deg) scale(2.65);
+    transform: translate(-50%, -50%) rotate(260deg) scale(2.35);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(520deg) scale(3.2);
+    transform: translate(-50%, -50%) rotate(430deg) scale(2.9);
     color: var(--blue-deep);
   }
 }
@@ -263,7 +269,7 @@ select:focus-visible {
 
 .icon-link:hover .droplet-petal,
 .icon-link:focus-visible .droplet-petal {
-  animation: petal-catch-up 1.9s ease-in-out infinite;
+  animation: petal-catch-up 2.8s ease-in-out infinite;
 }
 
 .icon-link:hover .petal-2,
@@ -304,11 +310,11 @@ select:focus-visible {
   }
 
   34% {
-    transform: rotate(-7deg) scaleX(0.94) scaleY(1.03);
+    transform: rotate(-2.5deg) scaleX(0.98) scaleY(1.01);
   }
 
   68% {
-    transform: rotate(5deg) scaleX(1.04) scaleY(0.98);
+    transform: rotate(2deg) scaleX(1.015) scaleY(0.995);
   }
 }
 
@@ -772,6 +778,7 @@ textarea {
   .burst-button.is-spinning svg,
   .page-transition,
   .page-transition-mark,
+  .page-transition::before,
   .icon-link svg {
     animation-duration: 1ms;
     transition-duration: 1ms;
