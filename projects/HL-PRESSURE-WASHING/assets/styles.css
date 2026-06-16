@@ -50,6 +50,11 @@ a {
   color: var(--white);
 }
 
+.landing-topbar {
+  justify-content: center;
+  padding-top: clamp(28px, 5vw, 56px);
+}
+
 .topbar > *,
 .hero > *,
 .page-grid > *,
@@ -136,6 +141,37 @@ select:focus-visible {
   fill: currentColor;
 }
 
+.icon-nav {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: clamp(28px, 8vw, 96px);
+}
+
+.icon-link {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.icon-link svg {
+  width: clamp(74px, 12vw, 128px);
+  height: clamp(74px, 12vw, 128px);
+  color: var(--white);
+  fill: currentColor;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.icon-link:hover svg,
+.icon-link:focus-visible svg {
+  color: var(--aqua);
+  transform: rotate(24deg) scale(1.04);
+}
+
 .hero,
 .page-grid {
   width: min(1160px, calc(100% - 32px));
@@ -152,12 +188,36 @@ select:focus-visible {
   color: var(--white);
 }
 
+.hero-simple {
+  min-height: calc(100vh - 190px);
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  padding-top: clamp(20px, 4vw, 52px);
+}
+
+.hero-centered {
+  width: min(900px, 100%);
+}
+
 .hero-copy h1,
 .page-title h1 {
   margin: 0;
   font-size: clamp(3rem, 6vw, 5.6rem);
   line-height: 0.9;
   letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 span {
+  display: block;
+}
+
+.company-name {
+  margin: 0 0 22px;
+  color: var(--aqua);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 900;
   text-transform: uppercase;
 }
 
@@ -202,6 +262,14 @@ select:focus-visible {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.86);
   overflow-wrap: anywhere;
+}
+
+.hero-copy .company-name {
+  margin: 0 0 22px;
+  color: var(--aqua);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .service-row {
