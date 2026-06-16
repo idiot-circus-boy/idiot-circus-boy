@@ -234,6 +234,7 @@ select:focus-visible {
   color: rgba(255, 255, 255, 0.22);
   fill: currentColor;
   transition: transform 180ms ease, color 180ms ease;
+  transform-origin: center;
 }
 
 .icon-link span {
@@ -250,7 +251,13 @@ select:focus-visible {
 .icon-link:hover svg,
 .icon-link:focus-visible svg {
   color: rgba(143, 242, 234, 0.38);
-  transform: rotate(24deg) scale(1.04);
+  animation: slow-logo-spin 5.5s linear infinite;
+}
+
+@keyframes slow-logo-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero,
@@ -713,5 +720,10 @@ textarea {
   .icon-link svg {
     animation-duration: 1ms;
     transition-duration: 1ms;
+  }
+
+  .icon-link:hover svg,
+  .icon-link:focus-visible svg {
+    animation: none;
   }
 }
