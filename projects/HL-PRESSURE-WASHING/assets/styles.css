@@ -245,6 +245,16 @@ select:focus-visible {
   gap: 14px;
 }
 
+.schedule-card .quick-panel {
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.schedule-card .quick-panel > .burst-button {
+  width: 76px;
+  height: 76px;
+  color: var(--blue);
+}
+
 .quick-panel h2,
 .form-panel h2,
 .gallery-section h2 {
