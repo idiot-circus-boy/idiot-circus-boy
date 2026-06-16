@@ -3,45 +3,155 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HL Pressure Washing</title>
-  <style>
-    :root {
-      color-scheme: light;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f8fb;
-      color: #18232f;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-    }
-
-    main {
-      width: min(92vw, 720px);
-      text-align: center;
-      padding: 48px 24px;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.25rem, 8vw, 5rem);
-      line-height: 1;
-    }
-
-    p {
-      margin: 0;
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      color: #435466;
-    }
-  </style>
+  <title>Schedule | HL Pressure Washing</title>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <main>
-    <h1>Hello world.</h1>
-    <p>HL Pressure Washing is coming soon.</p>
-  </main>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="HL Pressure Washing scheduling">
+        <span class="brand-mark" aria-hidden="true"><svg><use href="assets/hl-burst.svg#burst"></use></svg></span>
+        <span>HL Pressure Washing</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">
+          <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+          Schedule
+        </a>
+        <a class="nav-link" href="work.html">
+          <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+          Pictures
+        </a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-copy" aria-labelledby="schedule-title">
+        <div class="stacked-name">
+          <div class="vertical-letters" aria-hidden="true">
+            <span>H</span>
+            <span>&amp;</span>
+            <span>L</span>
+          </div>
+          <div>
+            <div class="amp-row">
+              <button class="burst-button" type="button" aria-label="Spin the HL pressure washing mark">
+                <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+              </button>
+              <div class="headline">
+                <h1 id="schedule-title">Pressure<br>Washing</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Book driveway, patio, siding, and gutter cleaning with a sharp finish and straightforward scheduling.</p>
+        <div class="service-row" aria-label="Services">
+          <span>Driveways</span>
+          <span>Patios</span>
+          <span>Siding</span>
+          <span>Gutters</span>
+        </div>
+      </section>
+
+      <aside class="hero-card" aria-label="Reference sign and booking shortcut">
+        <img src="assets/hl-pressure-washing-sign.jpg" alt="HL Pressure Washing blue and white sign">
+        <div class="quick-panel">
+          <h2>Pick a job type</h2>
+          <div class="service-buttons">
+            <button class="service-pick" type="button" data-service="Driveway cleaning">Driveway</button>
+            <button class="service-pick" type="button" data-service="Patio cleaning">Patio</button>
+            <button class="service-pick" type="button" data-service="Siding wash">Siding</button>
+            <button class="service-pick" type="button" data-service="Gutter cleaning">Gutters</button>
+          </div>
+          <a class="button secondary" href="#schedule-form">
+            <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+            Request time
+          </a>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <section class="page-shell" id="schedule-form">
+    <div class="page-title">
+      <h1>Schedule</h1>
+      <p>Send the job details and preferred timing for a fast estimate.</p>
+    </div>
+    <div class="page-grid">
+      <form class="form-panel" id="schedule-request-form" action="mailto:hlpressurwashing@gmail.com,landon.paul.leblanc@gmail.com,moralfamily@gmail.com" method="post" enctype="text/plain">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div class="field full">
+            <label for="address">Service address</label>
+            <input id="address" name="address" autocomplete="street-address">
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option>Driveway cleaning</option>
+              <option>Patio cleaning</option>
+              <option>Siding wash</option>
+              <option>Gutter cleaning</option>
+              <option>Full exterior wash</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input id="date" name="preferred_date" type="date">
+          </div>
+          <div class="field">
+            <label for="time">Preferred time</label>
+            <select id="time" name="preferred_time">
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+              <option>First available</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Gate codes, surface size, problem areas, or best time to call"></textarea>
+          </div>
+        </div>
+        <div class="page-actions">
+          <button class="button" type="submit">
+            <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+            Send request
+          </button>
+          <a class="button secondary" href="work.html">
+            <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
+            See pictures
+          </a>
+        </div>
+      </form>
+
+      <aside class="info-panel">
+        <h2>Contact</h2>
+        <div class="info-list">
+          <div class="info-item">
+            <button class="burst-button" type="button" aria-label="Spin icon for request details"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
+            <div><strong>Landon</strong><p><a href="tel:+13374519553">337-451-9553</a> · <a href="sms:+13374519553">Text Landon</a></p></div>
+          </div>
+          <div class="info-item">
+            <button class="burst-button" type="button" aria-label="Spin icon for estimate"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
+            <div><strong>Hunter</strong><p><a href="tel:+13372583336">337-258-3336</a> · <a href="sms:+13372583336">Text Hunter</a></p></div>
+          </div>
+          <div class="info-item">
+            <button class="burst-button" type="button" aria-label="Spin icon for clean result"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
+            <div><strong>Email</strong><p><a href="mailto:hlpressurwashing@gmail.com,landon.paul.leblanc@gmail.com,moralfamily@gmail.com">Send a request</a></p></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>

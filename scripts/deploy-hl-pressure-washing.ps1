@@ -154,9 +154,15 @@ if ($credential -and $keyringCredential -and -not $usedEnvPassword) {
 }
 
 $siteDir = Join-Path (Split-Path $PSScriptRoot) "projects\HL-PRESSURE-WASHING"
-$localFiles = @(
-    "$siteDir\index.html"
-)
+$excludedDeployFiles = @("HANDOFF.md", "ftp-marker.html")
+$localFiles = Get-ChildItem -LiteralPath $siteDir -Recurse -File |
+    Where-Object { $excludedDeployFiles -notcontains $_.Name } |
+    ForEach-Object {
+        [pscustomobject]@{
+            FullName = $_.FullName
+            RelativePath = $_.FullName.Substring($siteDir.Length).TrimStart("\", "/") -replace "\\", "/"
+        }
+    }
 
 function Ensure-FtpDirectory {
     param(
@@ -237,8 +243,7 @@ Write-Host "Remote path: $RemotePath" -ForegroundColor Cyan
 if ($DryRun) {
     Write-Host "Dry run only. No files were uploaded." -ForegroundColor Yellow
     foreach ($localFile in $localFiles) {
-        $fileName = Split-Path $localFile -Leaf
-        Write-Host "Would upload $localFile to $remoteUrl/$fileName" -ForegroundColor Yellow
+        Write-Host "Would upload $($localFile.FullName) to $remoteUrl/$($localFile.RelativePath)" -ForegroundColor Yellow
     }
     exit 0
 }
@@ -246,11 +251,11 @@ if ($DryRun) {
 Ensure-FtpDirectory -Url $remoteUrl -Credential $credential
 
 foreach ($localFile in $localFiles) {
-    $fileName = Split-Path $localFile -Leaf
+    $fileName = $localFile.RelativePath
     $uploadUrl = "$remoteUrl/$fileName"
 
-    if (-not (Test-Path $localFile)) {
-        Write-Host "ERROR: File not found: $localFile" -ForegroundColor Red
+    if (-not (Test-Path $localFile.FullName)) {
+        Write-Host "ERROR: File not found: $($localFile.FullName)" -ForegroundColor Red
         continue
     }
 
@@ -264,7 +269,7 @@ foreach ($localFile in $localFiles) {
         $ftpRequest.UsePassive = $true
         $ftpRequest.EnableSsl = [bool]$Ftps
 
-        $fileContent = [System.IO.File]::ReadAllBytes($localFile)
+        $fileContent = [System.IO.File]::ReadAllBytes($localFile.FullName)
         $ftpRequest.ContentLength = $fileContent.Length
 
         $requestStream = $ftpRequest.GetRequestStream()
@@ -285,7 +290,7 @@ foreach ($localFile in $localFiles) {
 
         Write-Host "  -> Retrying $fileName with curl.exe..." -ForegroundColor Cyan
         try {
-            Upload-WithCurl -LocalFile $localFile -UploadUrl $uploadUrl -Credential $credential -UseFtps ([bool]$Ftps) -AllowInsecureFtps ([bool]$InsecureFtps)
+            Upload-WithCurl -LocalFile $localFile.FullName -UploadUrl $uploadUrl -Credential $credential -UseFtps ([bool]$Ftps) -AllowInsecureFtps ([bool]$InsecureFtps)
             Write-Host "  -> $fileName uploaded successfully with curl.exe" -ForegroundColor Green
         }
         catch {
