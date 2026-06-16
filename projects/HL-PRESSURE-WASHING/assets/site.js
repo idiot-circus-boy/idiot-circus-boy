@@ -42,18 +42,6 @@ document.querySelectorAll(".icon-link").forEach((link) => {
     document.body.classList.add("is-transitioning");
 
     window.setTimeout(() => {
-      const samePage = destination.origin === window.location.origin &&
-        destination.pathname === window.location.pathname &&
-        destination.hash;
-
-      if (samePage) {
-        document.querySelector(destination.hash)?.scrollIntoView({ behavior: "auto" });
-        window.history.pushState(null, "", destination.hash);
-        overlay.remove();
-        document.body.classList.remove("is-transitioning");
-        return;
-      }
-
       window.location.href = destination.href;
     }, 1250);
   });

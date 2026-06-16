@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schedule | HL Pressure Washing</title>
+  <title>HL Pressure Washing</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <div class="site-shell">
     <header class="topbar landing-topbar">
       <nav class="icon-nav" aria-label="Main navigation">
-        <a class="icon-link" href="#schedule-form" aria-label="Go to scheduling">
+        <a class="icon-link" href="schedule.html" aria-label="Go to scheduling">
           <svg class="droplet-logo" viewBox="0 0 128 128" aria-hidden="true">
             <path class="droplet-petal petal-1" d="M64 62C49 43 42 29 45 17 48 7 56 2 64 2s16 5 19 15c3 12-4 26-19 45Z"/>
             <path class="droplet-petal petal-2" d="M66 63c9-23 19-36 31-39 10-3 19 1 23 8s3 17-5 24c-9 8-25 9-49 7Z"/>
@@ -38,8 +38,8 @@
     </header>
 
     <main class="hero hero-simple">
-      <section class="hero-copy hero-centered" aria-labelledby="schedule-title">
-        <h1 id="schedule-title">
+      <section class="hero-copy hero-centered" aria-labelledby="home-title">
+        <h1 id="home-title">
           <span>H &amp; L</span>
           <span>Pressure Washing</span>
         </h1>
@@ -48,86 +48,6 @@
       </section>
     </main>
   </div>
-
-  <section class="page-shell" id="schedule-form">
-    <div class="page-title">
-      <h1>Schedule</h1>
-      <p>Send the job details and preferred timing for a fast estimate.</p>
-    </div>
-    <div class="page-grid">
-      <form class="form-panel" id="schedule-request-form" action="mailto:hlpressurwashing@gmail.com,landon.paul.leblanc@gmail.com,moralfamily@gmail.com" method="post" enctype="text/plain">
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" autocomplete="tel" required>
-          </div>
-          <div class="field full">
-            <label for="address">Service address</label>
-            <input id="address" name="address" autocomplete="street-address">
-          </div>
-          <div class="field">
-            <label for="service">Service</label>
-            <select id="service" name="service">
-              <option>Driveway cleaning</option>
-              <option>Patio cleaning</option>
-              <option>Siding wash</option>
-              <option>Gutter cleaning</option>
-              <option>Full exterior wash</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="date">Preferred date</label>
-            <input id="date" name="preferred_date" type="date">
-          </div>
-          <div class="field">
-            <label for="time">Preferred time</label>
-            <select id="time" name="preferred_time">
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-              <option>First available</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" placeholder="Gate codes, surface size, problem areas, or best time to call"></textarea>
-          </div>
-        </div>
-        <div class="page-actions">
-          <button class="button" type="submit">
-            <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
-            Send request
-          </button>
-          <a class="button secondary" href="work.html">
-            <svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg>
-            See pictures
-          </a>
-        </div>
-      </form>
-
-      <aside class="info-panel">
-        <h2>Contact</h2>
-        <div class="info-list">
-          <div class="info-item">
-            <button class="burst-button" type="button" aria-label="Spin icon for request details"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
-            <div><strong>Landon</strong><p><a href="tel:+13374519553">337-451-9553</a> · <a href="sms:+13374519553">Text Landon</a></p></div>
-          </div>
-          <div class="info-item">
-            <button class="burst-button" type="button" aria-label="Spin icon for estimate"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
-            <div><strong>Hunter</strong><p><a href="tel:+13372583336">337-258-3336</a> · <a href="sms:+13372583336">Text Hunter</a></p></div>
-          </div>
-          <div class="info-item">
-            <button class="burst-button" type="button" aria-label="Spin icon for clean result"><svg aria-hidden="true"><use href="assets/hl-burst.svg#burst"></use></svg></button>
-            <div><strong>Email</strong><p><a href="mailto:hlpressurwashing@gmail.com,landon.paul.leblanc@gmail.com,moralfamily@gmail.com">Send a request</a></p></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
 
   <script src="assets/site.js"></script>
 </body>
